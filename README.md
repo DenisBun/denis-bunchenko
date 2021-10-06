@@ -2,9 +2,26 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
+
+![Commit Activity](https://img.shields.io/github/commit-activity/m/AwesomeDevDen/denis-bunchenko)
+
+![Reddit User Karma](https://img.shields.io/reddit/user-karma/combined/awesomedevv?style=social)
+
+![Twitter Follow](https://img.shields.io/twitter/follow/AwesomeDevDen?style=social)
+
+
 Denis personal website running on Gatsby, React, and Node.js.
 
-**Note**: The source for this site was not created to be a template or theme, but for my own use. Feel free to take whatever inspiration from it that you want, but this code was not written with the intention of being cloned and deployed. As such, I do not provide support or guidance for doing that. I recommend using the [Gatsby Advanced Starter](https://github.com/vagr9k/gatsby-advanced-starter/) to set up a blog or an existing theme created for that purpose.
+**Note**: The source for this site was not created to be a template or theme, but for my own use. Feel free to take whatever inspiration from it that you want, but this code was not written with the intention of being cloned and deployed. As such, I do not provide support or guidance for doing that.
+
+## Social
+
+[![Medium](https://img.shields.io/badge/-medium-lightgrey)](https://medium.com/@den.on.by/) 
+[![Instagram](https://img.shields.io/badge/-instagram-orange?style=plastic)](https://www.instagram.com/so_fucking_sorry/) 
+[![LinkedIn](https://img.shields.io/badge/-linkedIn-blue?style=plastic)](https://www.linkedin.com/in/denis-bunchenko-6276a0b6/) 
+[![Upwork](https://img.shields.io/badge/-upwork-green?style=plastic)](https://www.upwork.com/freelancers/~01d492b72c70067180)
+
+Also reachable via den.on.by@gmail.com or awesomedevdev@yandex.com.
 
 ## License
 
