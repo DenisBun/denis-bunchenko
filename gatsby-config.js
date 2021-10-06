@@ -3,12 +3,18 @@ module.exports = {
     title: `Blog`,
     author: {
       name: `Denis Bunchenko`,
-      summary: `making things as a Software Developer. Greetings from Belarus :)`,
+      summary: `Making things as a Software Developer. Current location: Belarus 🇧🇾`,
     },
     description: `Blog about programming and related stuff.`,
     siteUrl: `https://denisbunchenkoblog.gatsbyjs.io/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `@AwesomeDevDen`,
+      instagram: `so_fucking_sorry`,
+      linkedIn: `denis-bunchenko-6276a0b6`,
+      upWork: `~01d492b72c70067180`,
+      gitHub: `AwesomeDevDen`,
+      medium: `@den.on.by`,
+      reddit: `awesomedevv`,
     },
   },
   plugins: [
