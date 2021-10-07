@@ -1,7 +1,6 @@
 # denisbunchenko.com
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![Netlify Status](https://api.netlify.com/api/v1/badges/9b174463-b49f-4fe0-8df8-24c9d0812aeb/deploy-status)](https://app.netlify.com/sites/denisbunchenko/deploys)
 
 ![Commit Activity](https://img.shields.io/github/commit-activity/m/AwesomeDevDen/denis-bunchenko)
 
