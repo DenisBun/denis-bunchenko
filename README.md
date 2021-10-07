@@ -4,6 +4,8 @@
 
 ![Commit Activity](https://img.shields.io/github/commit-activity/m/AwesomeDevDen/denis-bunchenko)
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/D1D06HRNB)
+
 ![Reddit User Karma](https://img.shields.io/reddit/user-karma/combined/awesomedevv?style=social)
 
 ![Twitter Follow](https://img.shields.io/twitter/follow/AwesomeDevDen?style=social)
