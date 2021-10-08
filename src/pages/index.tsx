@@ -1,60 +1,90 @@
 import * as React from 'react';
 import { Link, graphql, PageProps } from 'gatsby';
+import { useEffect, useState } from 'react';
 
-import { Bio } from '../components/bio';
-import { Layout } from '../components/layout';
 import { Seo } from '../components/seo';
+import { Layout } from '../components/Layout';
+import { getSimplifiedPosts } from '../utils/helpers';
+
+// @ts-ignore-line
+import githubImg from '../images/nav-github.png';
+
+// @ts-ignore-line
+import * as styles from './index.module.less';
 
 const BlogIndex: React.FC<PageProps> = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`;
-  const posts = data.allMarkdownRemark.nodes;
+  // const [followers, setFollowers] = useState(0);
 
-  if (posts.length === 0) {
-    return (
-      <Layout location={location} title={siteTitle}>
-        <Seo title="All posts" />
-        <Bio />
-        <p>No blog posts yet. Stay tuned to get the latest updates! :).</p>
-      </Layout>
-    );
-  }
+  const siteTitle = data.site.siteMetadata?.title || `Title`;
+  const latestFivePosts = data.latest.edges;
+
+  const simplifiedLatestPosts = React.useMemo(
+    () => getSimplifiedPosts(latestFivePosts),
+    [latestFivePosts]
+  );
+
+  // useEffect(() => {
+  //   async function getGithubAPI() {
+  //     const response = await fetch(
+  //       'https://api.github.com/users/AwesomeDevDen'
+  //     );
+  //     const data = await response.json();
+
+  //     return data;
+  //   }
+
+  //   getGithubAPI().then((data) => {
+  //     setFollowers(data.followers);
+  //   });
+  // }, []);
 
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title="All posts" />
-      <Bio />
-      <ol style={{ listStyle: `none` }}>
-        {posts.map((post) => {
-          const title = post.frontmatter.title || post.fields.slug;
-
-          return (
-            <li key={post.fields.slug}>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
+      <article className={styles.hero}>
+        <header>
+          <div className={styles.container}>
+            <h1>Hey there! I'm Denis.</h1>
+            <p className={`${styles.subtitle} ${styles.small}`}>
+              I'm a <strong>software engineer</strong> from{' '}
+              <strong>Belarus</strong>. I love coding, writing and{' '}
+              <del>sometimes</del> sharing <Link to="/blog">my knowledge</Link>.
+              This website is a sort of a visual guide for me and my audience
+              showing what I've learned and created.
+            </p>
+            <p className={styles.heroButtons}>
+              <a
+                href="https://github.com/AwesomeDevDen"
+                className={`${styles.button} ${styles.iconButton}`}
               >
-                <header>
-                  <h2>
-                    <Link to={post.fields.slug} itemProp="url">
-                      <span itemProp="headline">{title}</span>
-                    </Link>
-                  </h2>
-                  <small>{post.frontmatter.date}</small>
-                </header>
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
-                    }}
-                    itemProp="description"
-                  />
-                </section>
-              </article>
-            </li>
-          );
-        })}
-      </ol>
+                <img src={githubImg} alt="GitHub" />
+                {/* {Number(followers).toLocaleString()} GitHub followers */}
+                Don't hesitate to follow
+              </a>
+            </p>
+          </div>
+        </header>
+
+        <div className={styles.container}>
+          <h2 className="flex-header">
+            <span>Latest Articles</span> <Link to="/blog">View All</Link>
+          </h2>
+          {/* <Posts data={simplifiedLatestPosts} /> */}
+          <h2>Newsletter</h2>
+          <p>
+            Subscribe to the newsletter to get my latest content by email. Not
+            on any set schedule. Unsubscribe anytime.
+          </p>
+          <p className={styles.heroButtons}>
+            <a
+              href="https://awesomeden.substack.com/subscribe"
+              className={styles.button}
+            >
+              Get the Newsletter
+            </a>
+          </p>
+        </div>
+      </article>
     </Layout>
   );
 };
@@ -68,16 +98,22 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      nodes {
-        excerpt
-        fields {
-          slug
-        }
-        frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          title
-          description
+    latest: allMarkdownRemark(
+      limit: 5
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { template: { eq: "blog-post" } } }
+    ) {
+      edges {
+        node {
+          id
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+            tags
+          }
         }
       }
     }

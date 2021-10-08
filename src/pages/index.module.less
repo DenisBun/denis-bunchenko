@@ -1,0 +1,53 @@
+@import "../common-styles.less";
+
+.hero {
+    header {
+        padding: 2rem 0 0;
+        text-align: left;
+    }
+    
+    h1 {
+        color: var(--bright-font-color);
+        font-size: 3.2rem;
+        margin-bottom: 1rem;
+    }
+      
+    p.subtitle {
+        font-size: 1.4rem;
+    }
+      
+    .heroButtons {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    @media screen and (max-width: @desktop-max-width) {
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        p.subtitle {
+            font-size: 1.2rem;
+        }        
+    }
+}
+
+.button {
+    background: #757FF8;
+    border: 1px solid #757FF8!important;
+    color: #fff;
+    display: block;
+    padding: .5rem 1rem;
+    font-weight: 600;
+
+    &.iconButton {
+        align-items: center;
+        display: flex;
+
+        img {
+            margin-right: .5rem;
+            max-height: 30px;
+        }
+    }
+}
