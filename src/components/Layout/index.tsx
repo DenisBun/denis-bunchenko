@@ -15,7 +15,10 @@ export const Layout: React.FC<DataProps> = ({ location, title, children }) => {
   const isRootPath = location.pathname === rootPath;
 
   return (
-    <div data-is-root-path={isRootPath}>
+    <div
+      data-is-root-path={isRootPath}
+      style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}
+    >
       <Header />
       <main>{children}</main>
       <Footer />

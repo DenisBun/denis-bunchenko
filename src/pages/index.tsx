@@ -11,6 +11,7 @@ import githubImg from '../images/nav-github.png';
 
 // @ts-ignore-line
 import * as styles from './index.module.less';
+import { Posts } from '../components/Posts/Posts';
 
 const BlogIndex: React.FC<PageProps> = ({ data, location }) => {
   // const [followers, setFollowers] = useState(0);
@@ -66,11 +67,11 @@ const BlogIndex: React.FC<PageProps> = ({ data, location }) => {
         </header>
 
         <div className={styles.container}>
-          <h2 className="flex-header">
+          <h2 className={styles.articlesHeader}>
             <span>Latest Articles</span> <Link to="/blog">View All</Link>
           </h2>
-          {/* <Posts data={simplifiedLatestPosts} /> */}
-          <h2>Newsletter</h2>
+          <Posts data={simplifiedLatestPosts} />
+          <h2 style={{ marginTop: '3rem', fontSize: '2rem' }}>Newsletter</h2>
           <p>
             Subscribe to the newsletter to get my latest content by email. Not
             on any set schedule. Unsubscribe anytime.
