@@ -23,7 +23,7 @@ export const Posts = ({ data = [], showYears, query }) => {
     return years.map((year) => (
       <section key={year}>
         <h2>{year}</h2>
-        <div className="posts">
+        <div>
           {postsByYear[year].map((node) => (
             <Post key={node.id} node={node} query={query} />
           ))}
@@ -32,7 +32,7 @@ export const Posts = ({ data = [], showYears, query }) => {
     ));
   } else {
     return (
-      <div className="posts">
+      <div>
         {data.map((node) => (
           <Post key={node.id} node={node} query={query} />
         ))}
