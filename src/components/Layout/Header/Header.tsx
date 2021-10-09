@@ -9,11 +9,17 @@ import myImg from '../../../images/me.png';
 import sun from '../../../images/sun.png';
 // @ts-ignore-line
 import moon from '../../../images/moon.png';
+import { useEffect } from 'react';
 
 export const Header = () => {
-  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
-    return (localStorage.getItem('theme') as 'light' | 'dark') || 'light';
-  });
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      setTheme(savedTheme as 'light' | 'dark');
+    }
+  }, []);
 
   const toggleTheme = () => {
     setTheme((currentTheme) => (currentTheme === 'light' ? 'dark' : 'light'));
