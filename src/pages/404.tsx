@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { graphql, PageProps } from 'gatsby';
 
-import { Seo } from '../components/seo';
+import { Seo } from '../components/Seo';
 import { Layout } from '../components/Layout';
 
 const NotFoundPage: React.FC<PageProps> = ({ data, location }) => {

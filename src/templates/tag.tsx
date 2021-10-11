@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { graphql } from 'gatsby';
 
 import { Layout } from '../components/Layout';
-import { Seo } from '../components/seo';
+import { Seo } from '../components/Seo';
 import { Posts } from '../components/Posts/Posts';
 import { getSimplifiedPosts } from '../utils/helpers';
 
