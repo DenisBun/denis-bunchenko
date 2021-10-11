@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Link, graphql, PageProps } from 'gatsby';
-import { useEffect, useState } from 'react';
 
 import { Seo } from '../components/seo';
 import { Layout } from '../components/Layout';
+import { Posts } from '../components/Posts/Posts';
 import { getSimplifiedPosts } from '../utils/helpers';
 
 // @ts-ignore-line
@@ -11,11 +11,8 @@ import githubImg from '../images/nav-github.png';
 
 // @ts-ignore-line
 import * as styles from './index.module.less';
-import { Posts } from '../components/Posts/Posts';
 
 const BlogIndex: React.FC<PageProps> = ({ data, location }) => {
-  // const [followers, setFollowers] = useState(0);
-
   const siteTitle = data.site.siteMetadata?.title || `Title`;
   const latestFivePosts = data.latest.edges;
 
@@ -24,24 +21,9 @@ const BlogIndex: React.FC<PageProps> = ({ data, location }) => {
     [latestFivePosts]
   );
 
-  // useEffect(() => {
-  //   async function getGithubAPI() {
-  //     const response = await fetch(
-  //       'https://api.github.com/users/AwesomeDevDen'
-  //     );
-  //     const data = await response.json();
-
-  //     return data;
-  //   }
-
-  //   getGithubAPI().then((data) => {
-  //     setFollowers(data.followers);
-  //   });
-  // }, []);
-
   return (
-    <Layout location={location} title={siteTitle}>
-      <Seo title="All posts" />
+    <Layout location={location}>
+      <Seo title="Denis Bunchenko" showDefaultTitle={false} />
       <article className={styles.hero}>
         <header>
           <div className={styles.container}>
@@ -59,7 +41,6 @@ const BlogIndex: React.FC<PageProps> = ({ data, location }) => {
                 className={`${styles.button} ${styles.iconButton}`}
               >
                 <img src={githubImg} alt="GitHub" />
-                {/* {Number(followers).toLocaleString()} GitHub followers */}
                 Don't hesitate to follow
               </a>
             </p>

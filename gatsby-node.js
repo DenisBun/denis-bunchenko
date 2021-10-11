@@ -2,78 +2,144 @@ const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
 
   // Define a template for blog post
-  const blogPost = path.resolve(`./src/templates/blog-post.js`)
+  const blogPost = path.resolve(`./src/templates/blog-post.js`);
+  const tagPage = path.resolve(`./src/templates/tag.js`);
 
   // Get all markdown blog posts sorted by date
   const result = await graphql(
     `
       {
-        allMarkdownRemark(
-          sort: { fields: [frontmatter___date], order: ASC }
-          limit: 1000
-        ) {
-          nodes {
-            id
-            fields {
-              slug
+        allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+          edges {
+            node {
+              id
+              frontmatter {
+                title
+                tags
+                template
+              }
+              fields {
+                slug
+              }
             }
           }
         }
       }
     `
-  )
+  );
 
   if (result.errors) {
     reporter.panicOnBuild(
       `There was an error loading your blog posts`,
       result.errors
-    )
-    return
+    );
+    return;
   }
 
-  const posts = result.data.allMarkdownRemark.nodes
+  // const posts = result.data.allMarkdownRemark.nodes
+  const all = result.data.allMarkdownRemark.edges;
+  const posts = all.filter(
+    (post) => post.node.frontmatter.template === 'blog-post'
+  );
+  // const pages = all.filter((post) => post.node.frontmatter.template === 'page');
+  const tagSet = new Set();
+  const categorySet = new Set();
 
-  // Create blog posts pages
-  // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
-  // `context` is available in the template as a prop and as a variable in GraphQL
+  // =====================================================================================
+  // Posts
+  // =====================================================================================
 
-  if (posts.length > 0) {
-    posts.forEach((post, index) => {
-      const previousPostId = index === 0 ? null : posts[index - 1].id
-      const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
+  posts.forEach((post, i) => {
+    const previous = i === posts.length - 1 ? null : posts[i + 1].node;
+    const next = i === 0 ? null : posts[i - 1].node;
 
-      createPage({
-        path: post.fields.slug,
-        component: blogPost,
-        context: {
-          id: post.id,
-          previousPostId,
-          nextPostId,
-        },
-      })
-    })
-  }
-}
+    if (post.node.frontmatter.tags) {
+      post.node.frontmatter.tags.forEach((tag) => {
+        tagSet.add(tag);
+      });
+    }
+
+    if (post.node.frontmatter.categories) {
+      post.node.frontmatter.categories.forEach((category) => {
+        categorySet.add(category);
+      });
+    }
+
+    createPage({
+      path: post.node.fields.slug,
+      component: blogPost,
+      context: {
+        slug: post.node.fields.slug,
+        previous,
+        next,
+      },
+    });
+  });
+
+  // =====================================================================================
+  // Pages
+  // =====================================================================================
+
+  // pages.forEach((page) => {
+  //   createPage({
+  //     path: page.node.fields.slug,
+  //     component: pagePage,
+  //     context: {
+  //       slug: page.node.fields.slug,
+  //     },
+  //   })
+  // })
+
+  // =====================================================================================
+  // Tags
+  // =====================================================================================
+
+  const tagList = Array.from(tagSet);
+  tagList.forEach((tag) => {
+    createPage({
+      path: `/tags/${slugify(tag)}/`,
+      component: tagPage,
+      context: {
+        tag,
+      },
+    });
+  });
+
+  // =====================================================================================
+  // Categories
+  // =====================================================================================
+
+  // const categoryList = Array.from(categorySet)
+  // categoryList.forEach((category) => {
+  //   createPage({
+  //     path: `/categories/${slugify(category)}/`,
+  //     component: categoryPage,
+  //     context: {
+  //       category,
+  //     },
+  //   })
+  // })
+};
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
+  const { createNodeField } = actions;
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
+    const value = createFilePath({ node, getNode });
 
     createNodeField({
       name: `slug`,
       node,
       value,
-    })
+    });
   }
-}
+};
 
 exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions
+  const { createTypes } = actions;
 
   // Explicitly define the siteMetadata {} object
   // This way those will always be defined even if removed from gatsby-config.js
@@ -111,8 +177,8 @@ exports.createSchemaCustomization = ({ actions }) => {
     type Fields {
       slug: String
     }
-  `)
-}
+  `);
+};
 
 // Absolute imports
 
@@ -129,3 +195,16 @@ exports.createSchemaCustomization = ({ actions }) => {
 //     },
 //   });
 // };
+
+// Helpers
+function slugify(str) {
+  return (
+    str &&
+    str
+      .match(
+        /[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g
+      )
+      .map((x) => x.toLowerCase())
+      .join('-')
+  );
+}

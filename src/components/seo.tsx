@@ -7,6 +7,7 @@ type SeoDataProps = {
   lang?: string;
   meta?: any[];
   title: string;
+  showDefaultTitle?: boolean;
 };
 
 export const Seo: React.FC<SeoDataProps> = ({
@@ -14,6 +15,7 @@ export const Seo: React.FC<SeoDataProps> = ({
   lang = 'en',
   meta = [],
   title,
+  showDefaultTitle = true,
 }) => {
   const { site } = useStaticQuery(
     graphql`
@@ -32,7 +34,7 @@ export const Seo: React.FC<SeoDataProps> = ({
   );
 
   const metaDescription = description || site.siteMetadata.description;
-  const defaultTitle = site.siteMetadata?.title;
+  const defaultTitle = showDefaultTitle && site.siteMetadata?.title;
 
   return (
     // @ts-ignore-line

@@ -1,11 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: `Blog`,
+    title: `Denis Bunchenko`,
     author: {
       name: `Denis Bunchenko`,
-      summary: `Making things as a Software Developer. Current location: Belarus 🇧🇾`,
+      summary: `Making things as a Software Developer. Current location: Belarus`,
     },
-    description: `Blog about programming and related stuff.`,
+    description: `Blog about programming: Guides, thoughts and inspirational stuff.`,
     siteUrl: `https://denisbunchenkoblog.gatsbyjs.io/`,
     social: {
       twitter: `@AwesomeDevDen`,

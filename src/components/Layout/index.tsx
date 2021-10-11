@@ -6,10 +6,9 @@ import { Footer } from './Footer/Footer';
 
 type DataProps = {
   location: Location;
-  title: string;
 };
 
-export const Layout: React.FC<DataProps> = ({ location, title, children }) => {
+export const Layout: React.FC<DataProps> = ({ location, children }) => {
   // @ts-ignore-line
   const rootPath = `${__PATH_PREFIX__}/`;
   const isRootPath = location.pathname === rootPath;

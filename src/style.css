@@ -1,6 +1,6 @@
 :root {
   /* Colors */
-  /* --primary: #7d87ff;
+  /* ;
   --link-color: white;
   --border-color: #111;
   --heading-font-color: var(--primary);
@@ -31,9 +31,13 @@
   --h4-filter: brightness(1.5);
   --dark-opacity: rgba(0, 0, 0, 0.2);
   --dark-opacity-hover: rgba(0, 0, 0, 0.3);
-  --reverse: #111;
-  --scrollbar: var(--border-color);
-  --scrollbar-track: var(--light-border-color); */
+  ;
+ */
+
+ --scrollbar: #111;
+ --scrollbar-track: #444;
+ --reverse: #111;
+ --primary: #1c77c3;
 
   /* Font */
   --font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
@@ -49,6 +53,33 @@
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: var(--scrollbar);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-track);
+  border-radius: 0;
+}
+
+::selection {
+  background: var(--primary);
+  color: var(--reverse);
+}
+
+::-moz-selection {
+  background: var(--primary);
+  color: var(--reverse);
+}
+
+::marker {
+  color: var(--primary);
 }
 
 a:focus-visible,
