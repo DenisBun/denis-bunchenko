@@ -1,4 +1,4 @@
-import { graphql, Link } from 'gatsby';
+import { graphql, Link, PageProps } from 'gatsby';
 import React from 'react';
 import { Layout } from '../components/Layout';
 
@@ -18,13 +18,14 @@ type TagsType = {
   };
 };
 
-const TagsPage: React.FC<TagsType> = ({
+const TagsPage: React.FC<PageProps<TagsType>> = ({
   data: {
     allMarkdownRemark: { group },
     site: {
       siteMetadata: { title },
     },
   },
+  location,
 }) => (
   <Layout location={location}>
     <Seo title={title} />

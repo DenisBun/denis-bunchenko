@@ -157,5 +157,53 @@ module.exports = {
     // ===================================================================================
 
     `gatsby-plugin-less`,
+
+    // ===================================================================================
+    // Search
+    // ===================================================================================
+
+    {
+      resolve: 'gatsby-plugin-local-search',
+      options: {
+        name: 'pages',
+        engine: 'flexsearch',
+        engineOptions: {
+          encode: 'icase',
+          tokenize: 'forward',
+          async: false,
+        },
+        query: `
+          {
+            allMarkdownRemark(filter: { frontmatter: { template: { eq: "blog-post" } } }) {
+              nodes {
+                id
+                fields {
+                  slug
+                }
+                frontmatter {
+                  title
+                  tags
+                  date(formatString: "MMMM DD, YYYY")
+                }
+                rawMarkdownBody
+              }
+            }
+          }
+        `,
+        ref: 'id',
+        index: ['title', 'tags'],
+        store: ['id', 'title', 'slug', 'tags', 'date'],
+        normalizer: ({ data }) =>
+          data.allMarkdownRemark.nodes.map((node) => ({
+            id: node.id,
+            slug: `${node.fields.slug}`,
+            title: node.frontmatter.title,
+            body: node.rawMarkdownBody,
+            tags: node.frontmatter.tags,
+            // categories: node.frontmatter.categories,
+            date: node.frontmatter.date,
+          })),
+      },
+    },
   ],
 };

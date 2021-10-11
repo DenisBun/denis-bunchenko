@@ -3,6 +3,8 @@ import React, { useMemo } from 'react';
 import { Post } from './Post/Post';
 
 export const Posts = ({ data = [], showYears, query }) => {
+  console.log(data, query);
+  
   const postsByYear = useMemo(() => {
     const collection = {};
 
