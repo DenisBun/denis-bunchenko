@@ -11,7 +11,9 @@ export const Search = ({ data }) => {
   const location = useLocation();
   const searchRef = useRef(null);
   const { search } = queryString.parse(location.search);
+
   const [query, setQuery] = useState(search || '');
+  
   const { localSearchPages } = useStaticQuery(graphql`
     query {
       localSearchPages {

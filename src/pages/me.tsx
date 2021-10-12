@@ -3,6 +3,7 @@ import React from 'react';
 
 import { Layout } from '../components/Layout';
 import { Seo } from '../components/Seo';
+import { SocialLinks } from '../components/shared/SocialLinks/SocialLinks';
 
 import * as styles from './me.module.less';
 
@@ -43,7 +44,7 @@ const Me: React.FC<PageProps> = ({ data, location }) => {
         </header>
 
         <section className={styles.container}>
-          <h3>Social</h3>
+          <SocialLinks />
         </section>
       </article>
     </Layout>
@@ -58,15 +59,6 @@ export const pageQuery = graphql`
         author {
           name
           summary
-        }
-        social {
-          twitter
-          instagram
-          linkedIn
-          upWork
-          gitHub
-          medium
-          reddit
         }
       }
     }
