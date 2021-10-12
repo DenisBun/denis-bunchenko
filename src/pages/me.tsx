@@ -25,7 +25,7 @@ const Me: React.FC<PageProps> = ({ data, location }) => {
               large-scale software products over 5 years.
             </p>
             <StaticImage
-              className="bio-avatar"
+              className={styles.aboutMePicture}
               formats={['auto', 'webp', 'avif']}
               src="../images/me.jpeg"
               // layout="fixed"
@@ -45,6 +45,7 @@ const Me: React.FC<PageProps> = ({ data, location }) => {
               <a
                 href="https://www.pinterest.ca/awesomedevdev/potential-tattoos/"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 tattoos
               </a>
@@ -52,6 +53,7 @@ const Me: React.FC<PageProps> = ({ data, location }) => {
               <a
                 href="https://open.spotify.com/playlist/2ijZQmb57z57bL6YAcNvXq?si=3094a54885e44f8e"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 music
               </a>{' '}
@@ -59,7 +61,7 @@ const Me: React.FC<PageProps> = ({ data, location }) => {
             </p>
             <p className={styles.description}>Ford Mustang owner 😎</p>
             <StaticImage
-              className="bio-avatar"
+              className={styles.aboutMePicture}
               formats={['auto', 'webp', 'avif']}
               src="../images/my-mustang.jpeg"
               alt="Ford Mustang"
@@ -73,7 +75,7 @@ const Me: React.FC<PageProps> = ({ data, location }) => {
           </div>
         </header>
 
-        <section className={styles.container}>
+        <section className={styles.container} style={{ paddingTop: 0 }}>
           <SocialLinks />
         </section>
       </article>

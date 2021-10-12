@@ -6,7 +6,7 @@ module.exports = {
       summary: `Making things as a Software Developer. Current location: Belarus`,
     },
     description: `Blog about programming: Guides, thoughts and inspirational stuff.`,
-    siteUrl: `https://denisbunchenkoblog.gatsbyjs.io/`,
+    siteUrl: `https://denis.bunchenko.com/`,
     social: {
       twitter: `@AwesomeDevDen`,
       instagram: `so_fucking_sorry`,
