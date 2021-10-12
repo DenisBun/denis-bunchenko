@@ -1,6 +1,28 @@
+.socialLinksWrapper {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 .socialLink {
     img {
         width: 50px;
         height: 50px;
+    }
+    opacity: .25;
+    transition: opacity .3s,filter .3s;
+    filter: grayscale(1);
+    border: none;
+    margin: 0 .7rem;
+    &:nth-child(1) {
+        margin-left: 0;
+    }
+    &:hover {
+        opacity: 1;
+        filter: grayscale(0);
+        background: none;
+        color: none;
+        border-top: none;
+        border-bottom: none
     }
 }
