@@ -21,7 +21,7 @@ const BlogPostTemplate = ({ data, location }) => {
       >
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
+          {/* <p>{post.frontmatter.date}</p> */}
         </header>
         {post.frontmatter.tags && (
           <div className="tags">
@@ -34,8 +34,13 @@ const BlogPostTemplate = ({ data, location }) => {
                 {tag}
               </Link>
             ))}
+            <Link to="/tags">View all tags</Link>
           </div>
         )}
+        <div className="post-details">
+          Written by <Link to="/me">Denis Bunchenko</Link> on{' '}
+          <time>{post.frontmatter.date}</time>
+        </div>
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"

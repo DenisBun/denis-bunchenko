@@ -38,6 +38,7 @@ const BlogIndex: React.FC<PageProps> = ({ data, location }) => {
             <p className={styles.heroButtons}>
               <a
                 href="https://github.com/AwesomeDevDen"
+                target="_blank"
                 className={`${styles.button} ${styles.iconButton}`}
               >
                 <img src={githubImg} alt="GitHub" />

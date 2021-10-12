@@ -6,52 +6,48 @@ import { Seo } from '../components/Seo';
 import { slugify } from '../utils/helpers';
 
 type TagsType = {
-  data: {
-    allMarkdownRemark: {
-      group: { fieldValue: string; totalCount: number }[];
-    };
-    site: {
-      siteMetadata: {
-        title: string;
-      };
-    };
+  allMarkdownRemark: {
+    group: { fieldValue: string; totalCount: number }[];
   };
 };
 
 const TagsPage: React.FC<PageProps<TagsType>> = ({
   data: {
     allMarkdownRemark: { group },
-    site: {
-      siteMetadata: { title },
-    },
   },
   location,
 }) => (
   <Layout location={location}>
-    <Seo title={title} />
-    <div>
-      <h1>Tags</h1>
-      <ul>
-        {group.map((tag) => (
-          <li key={tag.fieldValue}>
-            <Link to={`/tags/${slugify(tag.fieldValue)}/`}>
-              {tag.fieldValue} ({tag.totalCount})
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <Seo title="All Tags" />
+
+    <article className="blog-page">
+      <header>
+        <div className="container">
+          <h1>All Tags</h1>
+          <p className="description">
+            List of all tags which are used in articles
+          </p>
+        </div>
+      </header>
+
+      <section className="container">
+        <ul>
+          {group.map((tag) => (
+            <li key={tag.fieldValue}>
+              <Link to={`/tags/${slugify(tag.fieldValue)}/`}>
+                {tag.fieldValue} ({tag.totalCount})
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </article>
   </Layout>
 );
 
 export default TagsPage;
 export const pageQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allMarkdownRemark(limit: 2000) {
       group(field: frontmatter___tags) {
         fieldValue
