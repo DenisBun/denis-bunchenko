@@ -123,10 +123,10 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: var(--heading-font-family);
+  font-family: -apple-system,BlinkMacSystemFont,"Helvetica Neue","Roboto",Roboto,Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";;
   margin: 0 0 1.5rem 0;
   line-height: 1.2;
-  color: var(--heading-font-color);
+  color: var(--primary);
   scroll-margin-top: 60px;
 }
 

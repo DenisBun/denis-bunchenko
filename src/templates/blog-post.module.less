@@ -1,0 +1,53 @@
+@import "../common-styles.less";
+
+.postTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: .75rem;
+    font-family: @heading-font-family;
+    line-height: 1.2;
+    margin: 0 0 1.5rem;
+    scroll-margin-top: 60px;
+    text-align: center;
+}
+
+.tags {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    justify-content: center;
+    margin: 1.5rem 0;
+    
+    a {
+        background: #f0f0f0;
+        border: 1px solid #999;
+        color: black;
+        display: inline-block;
+        font-size: .9rem;
+        font-weight: 400;
+        line-height: normal;
+        padding: .3rem .5rem;
+        vertical-align: middle;
+
+        &:hover {
+            background: transparent;
+            border: 1px solid @primary-color;
+            color: @primary-color;
+            font-weight: 400;
+        }
+    }
+}
+
+.postDetails {
+    color: #888;
+    margin: 1rem 0;
+    text-align:center;
+}
+
+.postDescription {
+    color: #999;
+    font-size: 1.4rem;
+    margin-bottom: 0;
+    text-align: center;
+}

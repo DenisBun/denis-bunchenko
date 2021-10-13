@@ -1,7 +1,7 @@
 import { graphql, Link, PageProps } from 'gatsby';
 import React from 'react';
-import { Layout } from '../components/Layout';
 
+import { Layout } from '../components/Layout';
 import { Seo } from '../components/Seo';
 import { SocialLinks } from '../components/shared/SocialLinks/SocialLinks';
 import { slugify } from '../utils/helpers';
