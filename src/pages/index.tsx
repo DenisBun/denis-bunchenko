@@ -62,6 +62,7 @@ const BlogIndex: React.FC<PageProps> = ({ data, location }) => {
             <a
               href="https://awesomeden.substack.com/subscribe"
               className={styles.button}
+              target="_blank"
             >
               Get the Newsletter
             </a>
