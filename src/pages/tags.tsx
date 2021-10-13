@@ -26,15 +26,15 @@ const TagsPage: React.FC<PageProps<TagsType>> = ({
     <article className="blog-page">
       <header>
         <div className={styles.container}>
-          <h1>All Tags</h1>
-          <p className="description">
-            List of all tags which are used in articles:
+          <h1 className={styles.title}>All Tags</h1>
+          <p className={styles.subTitle}>
+            List of all tags which are used in articles
           </p>
         </div>
       </header>
 
       <section className={styles.container} style={{ paddingTop: 0 }}>
-        <ul>
+        <ul style={{ marginBottom: '3rem' }}>
           {group.map((tag, index, tagsArr) => (
             <li key={tag.fieldValue} className={styles.tag}>
               <Link to={`/tags/${slugify(tag.fieldValue)}/`}>

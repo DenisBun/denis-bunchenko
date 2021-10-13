@@ -19,7 +19,7 @@ const BlogIndex: React.FC<PageProps> = ({ data, location }) => {
       <article className="blog-page">
         <header>
           <div className={styles.container}>
-            <h1 className={styles.title}>About me</h1>
+            <h1 className={styles.title}>Blog</h1>
             <p className={styles.subTitle}>
               Articles, tutorials, snippets, notes, and much more else. The
               archive of everything I've written.
