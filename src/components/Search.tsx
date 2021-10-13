@@ -7,13 +7,15 @@ import { useLocation, navigate } from '@reach/router';
 import searchIcon from '../images/nav-search.png';
 import { Posts } from './Posts/Posts';
 
+import * as styles from './Search.module.less';
+
 export const Search = ({ data }) => {
   const location = useLocation();
   const searchRef = useRef(null);
   const { search } = queryString.parse(location.search);
 
   const [query, setQuery] = useState(search || '');
-  
+
   const { localSearchPages } = useStaticQuery(graphql`
     query {
       localSearchPages {
@@ -31,13 +33,13 @@ export const Search = ({ data }) => {
 
   return (
     <>
-      <div className="search-bar">
+      <div className={styles.searchBar}>
         <input
           ref={searchRef}
           id="search"
           type="search"
-          className="search-input"
-          placeholder="Begin typing to search..."
+          className={styles.searchInput}
+          placeholder="Start typing to search..."
           value={query}
           onChange={(e) => {
             navigate(
@@ -47,7 +49,7 @@ export const Search = ({ data }) => {
           }}
         />
         <img
-          className="search-icon"
+          className={styles.searchIcon}
           src={searchIcon}
           alt="Search"
           onClick={() => searchRef.current.focus()}

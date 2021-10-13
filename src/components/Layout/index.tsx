@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Link, PageProps } from 'gatsby';
 
 import { Header } from './Header/Header';
 import { Footer } from './Footer/Footer';

@@ -6,6 +6,8 @@ import { Search } from '../components/Search';
 import { Seo } from '../components/Seo';
 import { getSimplifiedPosts } from '../utils/helpers';
 
+import * as styles from './blog.module.less';
+
 const BlogIndex: React.FC<PageProps> = ({ data, location }) => {
   const posts = data.allMarkdownRemark.edges;
   const simplifiedPosts = useMemo(() => getSimplifiedPosts(posts), [posts]);
@@ -16,9 +18,9 @@ const BlogIndex: React.FC<PageProps> = ({ data, location }) => {
 
       <article className="blog-page">
         <header>
-          <div className="container">
-            <h1>Blog</h1>
-            <p className="description">
+          <div className={styles.container}>
+            <h1 className={styles.title}>About me</h1>
+            <p className={styles.subTitle}>
               Articles, tutorials, snippets, notes, and much more else. The
               archive of everything I've written.
             </p>
@@ -26,7 +28,7 @@ const BlogIndex: React.FC<PageProps> = ({ data, location }) => {
         </header>
 
         <section>
-          <div className="container">
+          <div className={styles.container}>
             <Search data={simplifiedPosts} showYears />
           </div>
         </section>
