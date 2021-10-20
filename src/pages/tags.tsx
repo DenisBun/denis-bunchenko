@@ -1,7 +1,6 @@
 import { graphql, Link, PageProps } from 'gatsby';
 import React from 'react';
 
-import { Layout } from '../components/Layout';
 import { Seo } from '../components/Seo';
 import { SocialLinks } from '../components/shared/SocialLinks/SocialLinks';
 import { slugify } from '../utils/helpers';
@@ -18,9 +17,8 @@ const TagsPage: React.FC<PageProps<TagsType>> = ({
   data: {
     allMarkdownRemark: { group },
   },
-  location,
 }) => (
-  <Layout location={location}>
+  <>
     <Seo title="All Tags" />
 
     <article className="blog-page">
@@ -34,7 +32,7 @@ const TagsPage: React.FC<PageProps<TagsType>> = ({
       </header>
 
       <section className={styles.container} style={{ paddingTop: 0 }}>
-        <ul style={{ marginBottom: '3rem' }}>
+        <ul className={styles.tagList}>
           {group.map((tag, index, tagsArr) => (
             <li key={tag.fieldValue} className={styles.tag}>
               <Link to={`/tags/${slugify(tag.fieldValue)}/`}>
@@ -46,7 +44,7 @@ const TagsPage: React.FC<PageProps<TagsType>> = ({
         <SocialLinks />
       </section>
     </article>
-  </Layout>
+  </>
 );
 
 export default TagsPage;

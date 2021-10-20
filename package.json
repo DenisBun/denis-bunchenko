@@ -9,10 +9,12 @@
   },
   "dependencies": {
     "@fontsource/dm-sans": "^4.5.0",
+    "@types/react-sidebar": "^3.0.2",
     "gatsby": "^3.13.1",
     "gatsby-plugin-feed": "^3.13.0",
     "gatsby-plugin-google-analytics": "^3.13.0",
     "gatsby-plugin-image": "^1.13.0",
+    "gatsby-plugin-layout": "^2.14.0",
     "gatsby-plugin-less": "^5.14.0",
     "gatsby-plugin-local-search": "^2.0.1",
     "gatsby-plugin-manifest": "^3.13.0",
@@ -31,8 +33,10 @@
     "netlify-build-plugin-pagewatch": "^1.0.2",
     "prismjs": "^1.25.0",
     "react": "^17.0.1",
+    "react-accessible-accordion": "^4.0.0",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
+    "react-sidebar": "^3.0.2",
     "react-use-flexsearch": "^0.1.1"
   },
   "devDependencies": {

@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Link, graphql, PageProps } from 'gatsby';
 
 import { Seo } from '../components/Seo';
-import { Layout } from '../components/Layout';
 import { Posts } from '../components/Posts/Posts';
 import { getSimplifiedPosts } from '../utils/helpers';
 
@@ -12,7 +11,7 @@ import githubImg from '../images/nav-github.png';
 // @ts-ignore-line
 import * as styles from './index.module.less';
 
-const BlogIndex: React.FC<PageProps> = ({ data, location }) => {
+const BlogIndex: React.FC<PageProps> = ({ data }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`;
   const latestFivePosts = data.latest.edges;
 
@@ -22,7 +21,7 @@ const BlogIndex: React.FC<PageProps> = ({ data, location }) => {
   );
 
   return (
-    <Layout location={location}>
+    <>
       <Seo title="Denis Bunchenko" showDefaultTitle={false} />
       <article className={styles.hero}>
         <header>
@@ -69,7 +68,7 @@ const BlogIndex: React.FC<PageProps> = ({ data, location }) => {
           </p>
         </div>
       </article>
-    </Layout>
+    </>
   );
 };
 

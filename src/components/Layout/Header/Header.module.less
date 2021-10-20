@@ -6,6 +6,7 @@
     @media screen and (max-width: @desktop-max-width) {
         height: 60px;    
     }
+    position: relative;
 }
 
 .myImg {
@@ -108,5 +109,18 @@
     }
     &:hover {
         background: rgba(0,0,0,0.1);
+    }
+}
+
+.sidebarToggleBtn {
+    position: absolute;
+    top: 30px;
+    left: 1.5rem;
+    display: none;
+    @media screen and (max-width: @desktop-max-width) {
+        top: 20px;    
+    }
+    @media screen and (min-width: @sidebar-visibility-min-width) {
+        display: block;
     }
 }

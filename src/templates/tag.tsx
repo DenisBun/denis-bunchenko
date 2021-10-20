@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react';
 import { graphql, Link } from 'gatsby';
 
-import { Layout } from '../components/Layout';
 import { Seo } from '../components/Seo';
 import { Posts } from '../components/Posts/Posts';
 import { getSimplifiedPosts } from '../utils/helpers';
@@ -16,7 +15,7 @@ const TagTemplate = ({ pageContext, data, location }) => {
   const message = totalCount === 1 ? ' post found.' : ' posts found.';
 
   return (
-    <Layout location={location}>
+    <>
       <Seo title={`Posts tagged: ${tag}`} />
 
       <article>
@@ -40,11 +39,10 @@ const TagTemplate = ({ pageContext, data, location }) => {
           </Link>
         </section>
       </article>
-    </Layout>
+    </>
   );
 };
 
-TagTemplate.Layout = Layout;
 
 export default TagTemplate;
 

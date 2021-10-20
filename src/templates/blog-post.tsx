@@ -1,7 +1,6 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 
-import { Layout } from '../components/Layout';
 import { Seo } from '../components/Seo';
 import { slugify } from '../utils/helpers';
 
@@ -13,7 +12,7 @@ const BlogPostTemplate = ({ data, location }) => {
   const { html } = data.markdownRemark;
 
   return (
-    <Layout location={location}>
+    <>
       <Seo title={post.title} description={post.description || post.excerpt} />
       <article itemScope itemType="http://schema.org/Article">
         <header>
@@ -58,7 +57,7 @@ const BlogPostTemplate = ({ data, location }) => {
           itemProp="articleBody"
         />
       </article>
-    </Layout>
+    </>
   );
 };
 

@@ -52,3 +52,6 @@ export function slugify(string) {
 //     console.log(`Error adding utterances comments on: ${commentBox}`);
 //   }
 // }
+
+
+export const hasWindow = typeof window !== 'undefined';

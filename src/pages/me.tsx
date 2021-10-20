@@ -1,18 +1,15 @@
-import { graphql, PageProps } from 'gatsby';
+import { PageProps } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
-import { Layout } from '../components/Layout';
 import { Seo } from '../components/Seo';
 import { SocialLinks } from '../components/shared/SocialLinks/SocialLinks';
 
 import * as styles from './me.module.less';
 
-const Me: React.FC<PageProps> = ({ data, location }) => {
-  const author = data.site.siteMetadata?.author;
-  const social = data.site.siteMetadata?.social;
+const Me: React.FC<PageProps> = () => {
   return (
-    <Layout location={location}>
+    <>
       <Seo title="About Me" />
 
       <article className="blog-page">
@@ -79,20 +76,8 @@ const Me: React.FC<PageProps> = ({ data, location }) => {
           <SocialLinks />
         </section>
       </article>
-    </Layout>
+    </>
   );
 };
 
 export default Me;
-export const pageQuery = graphql`
-  query BioQuery {
-    site {
-      siteMetadata {
-        author {
-          name
-          summary
-        }
-      }
-    }
-  }
-`;

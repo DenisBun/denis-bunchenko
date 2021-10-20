@@ -34,8 +34,12 @@
   ;
  */
 
- --scrollbar: #111;
- --scrollbar-track: #444;
+ --border-color: #111;
+ /* --scrollbar: var(--border-color);
+ --scrollbar-track: var(--light-border-color); */
+ --scrollbar: #888;
+ --scrollbar-track: #bbb;
+ --light-border-color: #444;
  --reverse: #111;
  --primary: #1c77c3;
 

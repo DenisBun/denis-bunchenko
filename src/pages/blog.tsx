@@ -1,19 +1,18 @@
 import React, { useMemo } from 'react';
 import { graphql, PageProps } from 'gatsby';
 
-import { Layout } from '../components/Layout';
 import { Search } from '../components/Search';
 import { Seo } from '../components/Seo';
 import { getSimplifiedPosts } from '../utils/helpers';
 
 import * as styles from './blog.module.less';
 
-const BlogIndex: React.FC<PageProps> = ({ data, location }) => {
+const BlogIndex: React.FC<PageProps> = ({ data }) => {
   const posts = data.allMarkdownRemark.edges;
   const simplifiedPosts = useMemo(() => getSimplifiedPosts(posts), [posts]);
 
   return (
-    <Layout location={location}>
+    <>
       <Seo title="Blog" />
 
       <article className="blog-page">
@@ -33,7 +32,7 @@ const BlogIndex: React.FC<PageProps> = ({ data, location }) => {
           </div>
         </section>
       </article>
-    </Layout>
+    </>
   );
 };
 

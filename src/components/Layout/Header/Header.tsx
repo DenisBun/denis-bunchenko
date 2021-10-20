@@ -1,5 +1,5 @@
 import { Link } from 'gatsby';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // @ts-ignore-line
 import * as styles from './Header.module.less';
@@ -9,9 +9,16 @@ import myImg from '../../../images/me.png';
 import sun from '../../../images/sun.png';
 // @ts-ignore-line
 import moon from '../../../images/moon.png';
-import { useEffect } from 'react';
 
-export const Header = () => {
+const sidebarButtonIcon = (
+  <svg viewBox="0 0 100 80" width="30" height="20">
+    <rect width="100" height="15"></rect>
+    <rect y="30" width="100" height="15"></rect>
+    <rect y="60" width="100" height="15"></rect>
+  </svg>
+);
+
+export const Header = ({ onToggleSidebarState }) => {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
   useEffect(() => {
@@ -27,6 +34,12 @@ export const Header = () => {
 
   return (
     <header className={styles.headerWrapper}>
+      <button
+        className={styles.sidebarToggleBtn}
+        onClick={onToggleSidebarState}
+      >
+        {sidebarButtonIcon}
+      </button>
       <div className={`${styles.container} ${styles.headerContainer}`}>
         <Link to="/" className={styles.homeLink}>
           <img className={styles.myImg} src={myImg} alt="GitHub" />
@@ -47,21 +60,12 @@ export const Header = () => {
           </Link>
         </nav>
 
-        {theme === 'light' ? (
-          <img
-            className={styles.themeIconToggle}
-            src={sun}
-            alt="sun"
-            onClick={toggleTheme}
-          />
-        ) : (
-          <img
-            className={styles.themeIconToggle}
-            src={moon}
-            alt="moon"
-            onClick={toggleTheme}
-          />
-        )}
+        <img
+          className={styles.themeIconToggle}
+          src={theme === 'light' ? sun : moon}
+          alt="sun"
+          onClick={toggleTheme}
+        />
       </div>
     </header>
   );

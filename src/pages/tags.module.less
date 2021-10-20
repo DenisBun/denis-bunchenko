@@ -14,7 +14,16 @@
     text-align: center;
 }
 
+.tagList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
 .tag {
+    list-style: none;
+    margin: .5rem;
     a {
         background: #f0f0f0;
         border: 1px solid #999;
@@ -24,7 +33,6 @@
         font-weight: 400;
         line-height: normal;
         padding: .3rem .5rem;
-        margin: 1rem 0;
         width: 150px;
         &:hover {
             background: transparent;
