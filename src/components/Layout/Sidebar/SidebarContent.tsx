@@ -1,4 +1,4 @@
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, Link } from 'gatsby';
 import React, { useMemo } from 'react';
 import {
   Accordion,
@@ -10,12 +10,13 @@ import {
 
 import {
   getCategoriesFromPosts,
+  getPostsByCategories,
   getSimplifiedPosts,
 } from '../../../utils/helpers';
 
 import * as styles from './SidebarContent.module.less';
 
-export const SidebarContent: React.FC = (props) => {
+export const SidebarContent: React.FC = () => {
   const data = useStaticQuery(graphql`
     query StaticQuery {
       allMarkdownRemark(
@@ -41,28 +42,42 @@ export const SidebarContent: React.FC = (props) => {
   `);
 
   const posts = data.allMarkdownRemark.edges;
+
   const simplifiedPosts = useMemo(() => getSimplifiedPosts(posts), [posts]);
+
   const categories = useMemo(
     () => getCategoriesFromPosts(simplifiedPosts),
     [simplifiedPosts]
   );
 
-  // const postsGroupedByCategories = simplifiedPosts.reduce((acc, post) => ({
-  //   ...acc,
-
-  // }), {})
+  const postsByCategories = useMemo(
+    () => getPostsByCategories(simplifiedPosts, categories),
+    [simplifiedPosts, categories]
+  );
 
   return (
     <>
       <div className={styles.sidebarContent}>
-        <h3 className={styles.sidebarTitle}>Categories</h3>
+        <h2 className={styles.sidebarTitle}>Categories 📔</h2>
         <Accordion allowZeroExpanded allowMultipleExpanded>
           {categories.map((category) => (
             <AccordionItem key={category}>
               <AccordionItemHeading>
                 <AccordionItemButton>{category}</AccordionItemButton>
               </AccordionItemHeading>
-              <AccordionItemPanel>posts by {category}</AccordionItemPanel>
+              <nav>
+                {postsByCategories[category].map((post) => (
+                  <Link
+                    to={post.slug}
+                    key={post.slug}
+                    className={styles.sidebarLink}
+                  >
+                    <AccordionItemPanel>
+                      <span>📜</span> <span>{post.title}</span>
+                    </AccordionItemPanel>
+                  </Link>
+                ))}
+              </nav>
             </AccordionItem>
           ))}
         </Accordion>

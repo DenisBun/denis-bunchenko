@@ -33,6 +33,26 @@ export function slugify(string) {
   );
 }
 
+export function getPostsByCategories(posts, categories) {
+  const categoriesMap = {};
+  categories.forEach((category) => {
+    categoriesMap[category] = [];
+  });
+
+  posts.forEach((post) => {
+    post.categories.forEach((category) => {
+      categoriesMap[category] = [
+        ...categoriesMap[category],
+        {
+          title: post.title,
+          slug: post.slug,
+        },
+      ];
+    });
+  });
+  return categoriesMap;
+}
+
 // export function appendComments(commentBox) {
 //   const commentScript = document.createElement('script');
 //   const theme =
