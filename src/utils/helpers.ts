@@ -53,25 +53,26 @@ export function getPostsByCategories(posts, categories) {
   return categoriesMap;
 }
 
-// export function appendComments(commentBox) {
-//   const commentScript = document.createElement('script');
-//   const theme =
-//     localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light';
+export function appendComments(commentBox) {
+  const commentScript = document.createElement('script');
+  // const theme =
+  //   localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light';
+  const theme = 'github-light';
 
-//   commentScript.async = true;
-//   commentScript.src = 'https://utteranc.es/client.js';
-//   commentScript.setAttribute('repo', 'denisbunchenko/comments');
-//   commentScript.setAttribute('issue-term', 'pathname');
-//   commentScript.setAttribute('id', 'utterances');
-//   commentScript.setAttribute('theme', theme);
-//   commentScript.setAttribute('crossorigin', 'anonymous');
+  commentScript.async = true;
+  commentScript.src = 'https://utteranc.es/client.js';
+  commentScript.setAttribute('repo', 'AwesomeDevDen/blog-comments');
+  commentScript.setAttribute('issue-term', 'pathname');
+  commentScript.setAttribute('id', 'utterances');
+  commentScript.setAttribute('theme', theme);
+  commentScript.setAttribute('crossorigin', 'anonymous');
 
-//   if (commentBox && commentBox.current) {
-//     commentBox.current.appendChild(commentScript);
-//   } else {
-//     console.log(`Error adding utterances comments on: ${commentBox}`);
-//   }
-// }
+  if (commentBox && commentBox.current) {
+    commentBox.current.appendChild(commentScript);
+  } else {
+    console.log(`Error adding utterances comments on: ${commentBox}`);
+  }
+}
 
 
 export const hasWindow = typeof window !== 'undefined';

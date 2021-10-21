@@ -2,7 +2,7 @@ import * as React from "react"
 import { Link, graphql } from "gatsby"
 
 import { Seo } from '../components/Seo';
-import { slugify } from '../utils/helpers';
+import { appendComments, slugify } from '../utils/helpers';
 
 import * as styles from './blog-post.module.less';
 
@@ -10,6 +10,12 @@ const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark.frontmatter;
   const { slug } = data.markdownRemark.fields;
   const { html } = data.markdownRemark;
+
+  const commentBox = React.createRef<HTMLDivElement>();
+
+  React.useEffect(() => {
+    appendComments(commentBox);
+  }, [commentBox]);
 
   return (
     <>
@@ -57,6 +63,11 @@ const BlogPostTemplate = ({ data, location }) => {
           itemProp="articleBody"
         />
       </article>
+
+      <section id="comments" className="comments container">
+        <h2>Comments</h2>
+        <div ref={commentBox} />
+      </section>
     </>
   );
 };
