@@ -34,6 +34,7 @@ export const Header = ({ onToggleSidebarState }) => {
       <button
         className={styles.sidebarToggleBtn}
         onClick={onToggleSidebarState}
+        aria-label="toggle"
       >
         {sidebarButtonIcon}
       </button>

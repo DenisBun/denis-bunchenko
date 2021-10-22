@@ -33,16 +33,16 @@ const BlogIndex: React.FC<PageProps> = ({ data }) => {
               This website is a sort of a visual guide for me and my audience
               showing what I've learned and created.
             </p>
-            <p className={styles.heroButtons} style={{marginBottom: 0}}>
+            <p className={styles.heroButtons} style={{ marginBottom: 0 }}>
               <a
                 href="https://github.com/AwesomeDevDen"
                 target="_blank"
+                rel="noopener noreferrer"
                 className={`${styles.button} ${styles.iconButton}`}
               >
                 <img src={githubImg} alt="GitHub" />
                 <span>Don't Hesitate to Follow</span>
               </a>
-              
             </p>
           </div>
         </header>
@@ -62,6 +62,7 @@ const BlogIndex: React.FC<PageProps> = ({ data }) => {
               href="https://awesomeden.substack.com/subscribe"
               className={styles.button}
               target="_blank"
+              rel="noopener noreferrer"
             >
               Get the Newsletter
             </a>
@@ -70,19 +71,22 @@ const BlogIndex: React.FC<PageProps> = ({ data }) => {
             Want to Support My Blog?
           </h2>
           <p>
-            I am doing my best sharing knowledge with you. This blog is absolutely ads-free, with no sponsors at all. If you enjoy my content, please consider supporting what I do.
+            I am doing my best sharing knowledge with you. This blog is
+            absolutely ads-free, with no sponsors at all. If you enjoy my
+            content, please consider supporting what I do.
           </p>
           <p className={styles.heroButtons}>
-          <a
-                href="https://ko-fi.com/awsmdenisbunchenko"
-                target="_blank"
-                className={`${styles.button} ${styles.iconButton}`}
-                style={{ backgroundColor: '#ff5f5f' }}
-              >
-                <img src={kofiCup} alt="ko-fi" className={styles.vibrateImg}/>
-                <span>Buy Me a Coffee</span>
-              </a>
-          </p>          
+            <a
+              href="https://ko-fi.com/awsmdenisbunchenko"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${styles.button} ${styles.iconButton}`}
+              style={{ backgroundColor: '#ff5f5f' }}
+            >
+              <img src={kofiCup} alt="ko-fi" className={styles.vibrateImg} />
+              <span>Buy Me a Coffee</span>
+            </a>
+          </p>
         </div>
       </article>
     </>

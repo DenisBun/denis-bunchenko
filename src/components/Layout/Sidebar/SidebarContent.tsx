@@ -66,16 +66,12 @@ export const SidebarContent: React.FC = () => {
                 <AccordionItemButton>{category}</AccordionItemButton>
               </AccordionItemHeading>
               <nav>
-                {postsByCategories[category].map((post, index, arr) => (
-                  <Link
-                    to={post.slug}
-                    key={post.slug}
-                    className={styles.sidebarLink}
-                  >
-                    <AccordionItemPanel>
+                {postsByCategories[category].map((post) => (
+                  <AccordionItemPanel key={post.slug}>
+                    <Link to={post.slug} className={styles.sidebarLink}>
                       <span>📜</span> <span>{post.title}</span>
-                    </AccordionItemPanel>
-                  </Link>
+                    </Link>
+                  </AccordionItemPanel>
                 ))}
               </nav>
             </AccordionItem>
