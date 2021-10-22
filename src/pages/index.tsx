@@ -7,6 +7,8 @@ import { getSimplifiedPosts } from '../utils/helpers';
 
 // @ts-ignore-line
 import githubImg from '../images/nav-github.png';
+// @ts-ignore-line
+import kofiCup from '../images/kofi-cup.png';
 
 // @ts-ignore-line
 import * as styles from './index.module.less';
@@ -34,15 +36,16 @@ const BlogIndex: React.FC<PageProps> = ({ data }) => {
               This website is a sort of a visual guide for me and my audience
               showing what I've learned and created.
             </p>
-            <p className={styles.heroButtons}>
+            <p className={styles.heroButtons} style={{marginBottom: 0}}>
               <a
                 href="https://github.com/AwesomeDevDen"
                 target="_blank"
                 className={`${styles.button} ${styles.iconButton}`}
               >
                 <img src={githubImg} alt="GitHub" />
-                Don't hesitate to follow
+                <span>Don't Hesitate to Follow</span>
               </a>
+              
             </p>
           </div>
         </header>
@@ -66,6 +69,23 @@ const BlogIndex: React.FC<PageProps> = ({ data }) => {
               Get the Newsletter
             </a>
           </p>
+          <h2 style={{ marginTop: '3rem', fontSize: '2rem' }}>
+            Want to Support My Blog?
+          </h2>
+          <p>
+            I am doing my best sharing knowledge with you. This blog is absolutely ads-free, with no sponsors at all. If you enjoy my content, please consider supporting what I do.
+          </p>
+          <p className={styles.heroButtons}>
+          <a
+                href="https://ko-fi.com/awsmdenisbunchenko"
+                target="_blank"
+                className={`${styles.button} ${styles.iconButton}`}
+                style={{ backgroundColor: '#ff5f5f' }}
+              >
+                <img src={kofiCup} alt="ko-fi" className={styles.vibrateImg}/>
+                <span>Buy Me a Coffee</span>
+              </a>
+          </p>          
         </div>
       </article>
     </>
@@ -82,7 +102,7 @@ export const pageQuery = graphql`
       }
     }
     latest: allMarkdownRemark(
-      limit: 5
+      limit: 4
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { template: { eq: "blog-post" } } }
     ) {

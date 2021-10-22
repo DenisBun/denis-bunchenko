@@ -153,3 +153,11 @@ article a:hover {
 .blog-page h2 {
   margin-top: 2.5rem;
 }
+
+.accordion__panel {
+  padding: 1rem !important;
+}
+
+.accordion__button {
+  padding: .75rem 1rem !important;
+}

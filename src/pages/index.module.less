@@ -40,6 +40,7 @@
     display: block;
     padding: .5rem 1rem;
     font-weight: 600;
+    font-size: 1.2rem;
 
     &.iconButton {
         align-items: center;
@@ -64,4 +65,17 @@
     a {
         font-size: 1rem;
     }
+}
+
+
+.vibrateImg {
+    animation: vibrate 4s infinite;
+}
+
+@keyframes vibrate { 
+    0%{ -webkit-transform: scale(1.1); -ms-transform: scale(1.1); transform: scale(1.1); } 
+    25%{ -webkit-transform: scale(1.2); -ms-transform: scale(1.2); transform: scale(1.2); } 
+    50%{ -webkit-transform: scale(1.1); -ms-transform: scale(1.1); transform: scale(1.1); } 
+    75%{ -webkit-transform: scale(1.2); -ms-transform: scale(1.2); transform: scale(1.2); } 
+    100%{ -webkit-transform: scale(1.1); -ms-transform: scale(1.1); transform: scale(1.1); } 
 }

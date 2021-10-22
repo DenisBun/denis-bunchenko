@@ -50,7 +50,10 @@ export const Post = ({ node, query }) => {
       key={node.id}
       className={isNew ? styles.postNew : styles.post}
     >
-      {getTitle(node.title, query)}
+      <span>
+        <span className={styles.newBadge}>{isNew && 'New!'}</span>
+        {getTitle(node.title, query)}
+      </span>
       <div>{formattedDate && <time>{formattedDate}</time>}</div>
     </Link>
   );

@@ -66,7 +66,7 @@ export const SidebarContent: React.FC = () => {
                 <AccordionItemButton>{category}</AccordionItemButton>
               </AccordionItemHeading>
               <nav>
-                {postsByCategories[category].map((post) => (
+                {postsByCategories[category].map((post, index, arr) => (
                   <Link
                     to={post.slug}
                     key={post.slug}
