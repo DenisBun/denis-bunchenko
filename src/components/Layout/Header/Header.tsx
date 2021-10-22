@@ -1,13 +1,10 @@
 import { Link } from 'gatsby';
 import React, { useState, useEffect } from 'react';
 
-// @ts-ignore-line
 import * as styles from './Header.module.less';
-// @ts-ignore-line
+
 import myImg from '../../../images/me.png';
-// @ts-ignore-line
 import sun from '../../../images/sun.png';
-// @ts-ignore-line
 import moon from '../../../images/moon.png';
 
 const sidebarButtonIcon = (

@@ -1,19 +1,12 @@
 import { Link } from 'gatsby';
 import React from 'react';
 
-//@ts-expect-error
 import * as styles from './Footer.module.less';
-//@ts-expect-error
 import netlify from '../../../images/netlify.png';
-//@ts-expect-error
 import gatsby from '../../../images/gatsby.png';
-//@ts-expect-error
 import github from '../../../images/nav-github.png';
-//@ts-expect-error
 import koFi from '../../../images/kofi-logo.png';
-//@ts-expect-error
 import newsletter from '../../../images/mail.png';
-//@ts-expect-error
 import rss from '../../../images/rss.png';
 
 const links = [

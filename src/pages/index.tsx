@@ -5,12 +5,9 @@ import { Seo } from '../components/Seo';
 import { Posts } from '../components/Posts/Posts';
 import { getSimplifiedPosts } from '../utils/helpers';
 
-// @ts-ignore-line
 import githubImg from '../images/nav-github.png';
-// @ts-ignore-line
 import kofiCup from '../images/kofi-cup.png';
 
-// @ts-ignore-line
 import * as styles from './index.module.less';
 
 const BlogIndex: React.FC<PageProps> = ({ data }) => {
