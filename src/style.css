@@ -155,7 +155,7 @@ article a:hover {
 }
 
 .accordion__panel {
-  padding: 1rem !important;
+  padding: 0 !important;
 }
 
 .accordion__button {
