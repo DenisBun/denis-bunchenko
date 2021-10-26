@@ -32,13 +32,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
   }, [isSidebarOpened]);
 
   const mediaQueryChanged = () => {
-    if (!mql.matches) {
-      setIsDocked(false);
-      setIsSidebarOpened(false);
-    } else {
-      setIsDocked(true);
-      setIsSidebarOpened(true);
-    }
+    setIsDocked(mql.matches);
+    setIsSidebarOpened(mql.matches);
   };
 
   if (!isDocked && isSidebarOpened) {

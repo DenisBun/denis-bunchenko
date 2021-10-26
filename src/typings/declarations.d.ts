@@ -3,6 +3,11 @@ declare module '*.less' {
   export = content;
 }
 
+declare module '*.module.less' {
+  const content: { [className: string]: string };
+  export = content;
+}
+
 declare module '*.png' {
   const imageUrl: string;
   export = imageUrl;
