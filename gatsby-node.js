@@ -77,7 +77,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         previous,
         next,
       },
-      defer: true,
     });
   });
 
@@ -107,7 +106,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       context: {
         tag,
       },
-      defer: true,
     });
   });
 
