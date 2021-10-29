@@ -55,9 +55,8 @@ export function getPostsByCategories(posts, categories) {
 
 export function appendComments(commentBox) {
   const commentScript = document.createElement('script');
-  // const theme =
-  //   localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light';
-  const theme = 'github-light';
+  const theme =
+    localStorage.getItem('theme') === 'dark' ? 'github-dark' : 'github-light';
 
   commentScript.async = true;
   commentScript.src = 'https://utteranc.es/client.js';
@@ -74,5 +73,10 @@ export function appendComments(commentBox) {
   }
 }
 
-
 export const hasWindow = typeof window !== 'undefined';
+
+export const toggleBackgroundColor = (theme) => {
+  document.body.style.backgroundColor = theme === 'light' ? 'white' : '#181a1b';
+};
+
+export const getMainClass = (theme) => `theme ${theme}`;

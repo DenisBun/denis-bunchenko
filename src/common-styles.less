@@ -1,3 +1,6 @@
+@import "./dark-theme.less";
+@import "./light-theme.less";
+
 @primary-color: #1c77c3;
 
 @desktop-max-width: 1000px;
@@ -8,31 +11,59 @@
 @heading-font-family: -apple-system,BlinkMacSystemFont,"Helvetica Neue","Roboto",Roboto,Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 
 .desktopOnly {
-    display: block !important;
+  display: block !important;
 }
 
 .container {
-    margin-left: auto;
-    margin-right: auto;
-    padding: 2rem;
-    max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem;
+  max-width: 800px;
 
-    &.large {
-        max-width: 1350px;
-      }
+  &.large {
+    max-width: 1350px;
+  }
 
-    &.small,
-    .small {
+  &.small,
+  .small {
     max-width: 550px;
+  }
+}
+  
+@media screen and (max-width: @desktop-max-width) {
+  .desktopOnly {
+    display: none !important;
+  }
+
+  .container {
+    padding: 1.5rem;
+  }
+}
+
+
+.mainThemeDependentCss() {
+  * {
+    color: @theme-font-color;
+  }
+
+  // =====================================================================================
+  // Header
+  // =====================================================================================
+  .headerWrapper {
+    background-color: @header-bg-color;
+    .headerLink {
+      background-color: @header-button-bg-color;
+      &:hover {
+        background-color: @header-button-bg-color-hover;
+      }
+    }
+    .sidebarToggleBtn {
+      fill: @header-sidebar-toggle-color
     }
   }
-  
-  @media screen and (max-width: @desktop-max-width) {
-    .desktopOnly {
-      display: none !important;
-    }
-  
-    .container {
-      padding: 1.5rem;
-    }
+
+  // Index page
+  .heroButtons {
+    color: @index-link-buttons-text-color
   }
+}

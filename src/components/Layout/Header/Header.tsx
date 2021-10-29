@@ -1,7 +1,7 @@
 import { Link } from 'gatsby';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-import * as styles from './Header.module.less';
+import './Header.less';
 
 import myImg from '../../../images/me.png';
 import sun from '../../../images/sun.png';
@@ -15,54 +15,35 @@ const sidebarButtonIcon = (
   </svg>
 );
 
-export const Header = ({ onToggleSidebarState }) => {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      setTheme(savedTheme as 'light' | 'dark');
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    setTheme((currentTheme) => (currentTheme === 'light' ? 'dark' : 'light'));
-  };
-
+export const Header = ({ onToggleSidebarState, onToggleTheme, theme }) => {
   return (
-    <header className={styles.headerWrapper}>
+    <header className="headerWrapper">
       <button
-        className={styles.sidebarToggleBtn}
+        className="sidebarToggleBtn"
         onClick={onToggleSidebarState}
         aria-label="toggle"
       >
         {sidebarButtonIcon}
       </button>
-      <div className={`${styles.container} ${styles.headerContainer}`}>
-        <Link to="/" className={styles.homeLink}>
-          <img className={styles.myImg} src={myImg} alt="GitHub" />
+      <div className="container headerContainer">
+        <Link to="/" className="homeLink">
+          <img className="myImg" src={myImg} alt="GitHub" />
           <span>Denis Bunchenko</span>
         </Link>
-        {/* <input type="checkbox" className={styles.checkbox} id="chk" />
-        <label className={styles.label} htmlFor="chk">
-          <img  style={{height: '18px', width: '18px'}} src={sun} alt="sun" />
-          <img style={{height: '18px', width: '18px'}}  src={moon} alt="moon" />
-          <div className={styles.ball}></div>
-        </label> */}
         <nav style={{ display: 'flex' }}>
-          <Link to="/blog" className={styles.headerLink}>
+          <Link to="/blog" className="headerLink">
             Blog
           </Link>
-          <Link to="/me" className={styles.headerLink}>
+          <Link to="/me" className="headerLink">
             About Me
           </Link>
         </nav>
 
         <img
-          className={styles.themeIconToggle}
+          className="themeIconToggle"
           src={theme === 'light' ? sun : moon}
           alt="sun"
-          onClick={toggleTheme}
+          onClick={onToggleTheme}
         />
       </div>
     </header>

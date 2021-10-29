@@ -8,7 +8,7 @@ import { getSimplifiedPosts } from '../utils/helpers';
 import githubImg from '../images/nav-github.png';
 import kofiCup from '../images/kofi-cup.png';
 
-import * as styles from './index.module.less';
+import './index.less';
 
 const BlogIndex: React.FC<PageProps> = ({ data }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`;
@@ -22,23 +22,23 @@ const BlogIndex: React.FC<PageProps> = ({ data }) => {
   return (
     <>
       <Seo title="Denis Bunchenko" showDefaultTitle={false} />
-      <article className={styles.hero}>
+      <article className="hero">
         <header>
-          <div className={styles.container}>
+          <div className="container">
             <h1>Hey there! I'm Denis.</h1>
-            <p className={`${styles.subtitle} ${styles.small}`}>
+            <p className="subtitle small">
               I'm a <strong>software engineer</strong> from{' '}
               <strong>Belarus</strong>. I love coding, writing and{' '}
               <del>sometimes</del> sharing <Link to="/blog">my knowledge</Link>.
               This website is a sort of a visual guide for me and my audience
               showing what I've learned and created.
             </p>
-            <p className={styles.heroButtons} style={{ marginBottom: 0 }}>
+            <p className="heroButtons" style={{ marginBottom: 0 }}>
               <a
                 href="https://github.com/AwesomeDevDen"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${styles.button} ${styles.iconButton}`}
+                className="button iconButton"
               >
                 <img src={githubImg} alt="GitHub" />
                 <span>Don't Hesitate to Follow</span>
@@ -47,8 +47,8 @@ const BlogIndex: React.FC<PageProps> = ({ data }) => {
           </div>
         </header>
 
-        <div className={styles.container}>
-          <h2 className={styles.articlesHeader}>
+        <div className="container">
+          <h2 className="articlesHeader">
             <span>Latest Articles</span> <Link to="/blog">View All</Link>
           </h2>
           <Posts data={simplifiedLatestPosts} />
@@ -57,10 +57,10 @@ const BlogIndex: React.FC<PageProps> = ({ data }) => {
             Subscribe to the newsletter to get my latest content by email. Not
             on any set schedule. Unsubscribe anytime.
           </p>
-          <p className={styles.heroButtons}>
+          <p className="heroButtons">
             <a
               href="https://awesomeden.substack.com/subscribe"
-              className={styles.button}
+              className="button"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -75,15 +75,15 @@ const BlogIndex: React.FC<PageProps> = ({ data }) => {
             absolutely ads-free, with no sponsors at all. If you enjoy my
             content, please consider supporting what I do.
           </p>
-          <p className={styles.heroButtons}>
+          <p className="heroButtons">
             <a
               href="https://ko-fi.com/awsmdenisbunchenko"
               target="_blank"
               rel="noopener noreferrer"
-              className={`${styles.button} ${styles.iconButton}`}
+              className="button iconButton"
               style={{ backgroundColor: '#ff5f5f' }}
             >
-              <img src={kofiCup} alt="ko-fi" className={styles.vibrateImg} />
+              <img src={kofiCup} alt="ko-fi" className="vibrateImg" />
               <span>Buy Me a Coffee</span>
             </a>
           </p>
