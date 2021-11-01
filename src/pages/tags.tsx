@@ -5,7 +5,7 @@ import { Seo } from '../components/Seo';
 import { SocialLinks } from '../components/shared/SocialLinks/SocialLinks';
 import { slugify } from '../utils/helpers';
 
-import * as styles from './tags.module.less';
+import './tags.less';
 
 type TagsType = {
   allMarkdownRemark: {
@@ -23,18 +23,18 @@ const TagsPage: React.FC<PageProps<TagsType>> = ({
 
     <article className="blog-page">
       <header>
-        <div className={styles.container}>
-          <h1 className={styles.title}>All Tags</h1>
-          <p className={styles.subTitle}>
+        <div className="container">
+          <h1 className="title">All Tags</h1>
+          <p className="subTitle">
             List of all tags which are used in articles
           </p>
         </div>
       </header>
 
-      <section className={styles.container} style={{ paddingTop: 0 }}>
-        <ul className={styles.tagList}>
+      <section className="container" style={{ paddingTop: 0 }}>
+        <ul className="tagList">
           {group.map((tag, index, tagsArr) => (
-            <li key={tag.fieldValue} className={styles.tag}>
+            <li key={tag.fieldValue} className="tag">
               <Link to={`/tags/${slugify(tag.fieldValue)}/`}>
                 {tag.fieldValue} ({tag.totalCount})
               </Link>

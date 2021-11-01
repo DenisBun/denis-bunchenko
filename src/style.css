@@ -22,33 +22,6 @@
   box-sizing: border-box;
 }
 
-/* Scrollbar */
-
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-  background: var(--scrollbar);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--scrollbar-track);
-  border-radius: 0;
-}
-
-::selection {
-  background: var(--primary);
-  color: var(--reverse);
-}
-
-::-moz-selection {
-  background: var(--primary);
-  color: var(--reverse);
-}
-
-::marker {
-  color: var(--primary);
-}
-
 a:focus-visible,
 button:focus-visible {
   outline: 3px solid var(--primary);
@@ -124,4 +97,8 @@ article a:hover {
 
 .accordion__button {
   padding: 0.75rem 1rem !important;
+}
+
+.gatsby-highlight {
+  margin: 1rem 0 3rem 0;
 }

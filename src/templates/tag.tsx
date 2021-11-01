@@ -5,7 +5,7 @@ import { Seo } from '../components/Seo';
 import { Posts } from '../components/Posts/Posts';
 import { getSimplifiedPosts } from '../utils/helpers';
 
-import * as styles from './tag.module.less';
+import './tag.less';
 
 const TagTemplate = ({ pageContext, data, location }) => {
   const { tag } = pageContext;
@@ -20,21 +20,21 @@ const TagTemplate = ({ pageContext, data, location }) => {
 
       <article>
         <header>
-          <div className={styles.container}>
+          <div className="container">
             <h1 style={{ marginBottom: '.75rem', textAlign: 'center' }}>
-              <span className={styles.deemphasized}>Posts tagged:</span>{' '}
-              <span className={styles.primaryUnderlined}>{tag}</span>
+              <span className="deemphasized">Posts tagged:</span>{' '}
+              <span className="primaryUnderlined">{tag}</span>
             </h1>
-            <p className={styles.description}>
+            <p className="description">
               <span className="count">{totalCount}</span>
               {message}
             </p>
           </div>
         </header>
 
-        <section className={styles.container}>
+        <section className="container">
           <Posts data={simplifiedPosts} />
-          <Link className={styles.allTagsLink} to="/tags">
+          <Link className="allTagsLink" to="/tags">
             View all tags
           </Link>
         </section>

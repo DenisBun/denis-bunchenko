@@ -6,7 +6,8 @@ import "./src/normalize.css"
 import './src/style.css';
 
 // Highlighting for code blocks
-import 'prismjs/themes/prism.css';
+import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
+
 
 // third-party
 import 'react-accessible-accordion/dist/fancy-example.css';
