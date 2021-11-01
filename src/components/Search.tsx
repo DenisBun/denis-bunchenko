@@ -7,7 +7,7 @@ import { useLocation, navigate } from '@reach/router';
 import searchIcon from '../images/nav-search.png';
 import { Posts } from './Posts/Posts';
 
-import * as styles from './Search.module.less';
+import './Search.less';
 
 export const Search = ({ data }) => {
   const location = useLocation();
@@ -33,12 +33,12 @@ export const Search = ({ data }) => {
 
   return (
     <>
-      <div className={styles.searchBar}>
+      <div className="searchBar">
         <input
           ref={searchRef}
           id="search"
           type="search"
-          className={styles.searchInput}
+          className="searchInput"
           placeholder="Start typing to search..."
           value={query}
           onChange={(e) => {
@@ -49,7 +49,7 @@ export const Search = ({ data }) => {
           }}
         />
         <img
-          className={styles.searchIcon}
+          className="searchIcon"
           src={searchIcon}
           alt="Search"
           onClick={() => searchRef.current.focus()}

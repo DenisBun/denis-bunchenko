@@ -43,7 +43,7 @@
 }
 
 // =====================================================================================
-// Main Styles For Different Themes
+// Main Styles For Dark/Light Themes
 // =====================================================================================
 
 .mainThemeDependentCss() {
@@ -83,11 +83,11 @@
     }
   }
 
-// =====================================================================================
+  // =====================================================================================
   // Sidebar
   // =====================================================================================
   .sidebarContent {
-    background-color: @sidebar-bg-color
+    background-color: @sidebar-bg-color;
   }
   .accordion__button {
     background-color: @accordion-button-bg-color;
@@ -116,6 +116,12 @@
     }
   }
   .hero {
+    h2 {
+      span {
+        color: @primary-color;
+      }
+      color: @primary-color;
+    }
     .post,
     .postNew {
       &:hover {
@@ -123,6 +129,20 @@
       }
     }
   }
+
+  // =====================================================================================
+  // Blog Search Page
+  // =====================================================================================
+  .searchInput {
+    background: @search-input-bg-color;
+  }
+  .post,
+  .postNew {
+    &:hover {
+      background: @post-hover-background;
+    }
+  }
+
   .newBadge {
     color: #ffbf00;
   }
