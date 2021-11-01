@@ -1,45 +1,45 @@
-@import "../../../common-styles.less";
+@import '../../../common-styles.less';
 
 .socialLinksWrapper {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  p {
+    font-size: 1.2rem;
+    margin: 0 0 1.5rem 0;
+  }
+  div {
     display: flex;
-    align-items: center;
-    flex-wrap: wrap; 
-    p {
-        font-size: 1.2rem;
-        margin: 0 0 1.5rem 0;
-    }
-    div {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        flex-wrap: wrap;
-    }
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+  }
 }
 
 .socialLink {
-    img {
-        width: 50px;
-        height: 50px;
-        @media screen and (max-width: @tablet-max-width) {
-            width: 35px;
-            height: 35px;
-            margin: .4rem;    
-        }
+  img {
+    width: 50px;
+    height: 50px;
+    @media screen and (max-width: @tablet-max-width) {
+      width: 35px;
+      height: 35px;
+      margin: 0.4rem;
     }
-    opacity: .25;
-    transition: opacity .3s,filter .3s;
-    filter: grayscale(1);
-    border: none;
-    margin: 0 .7rem;
-    &:nth-child(1) {
-        margin-left: 0;
-    }
-    &:hover {
-        opacity: 1;
-        filter: grayscale(0);
-        background: none;
-        color: none;
-        border-top: none;
-        border-bottom: none
-    }
+  }
+  opacity: 0.25;
+  transition: opacity 0.3s, filter 0.3s;
+  filter: grayscale(1);
+  border: none;
+  margin: 0 0.7rem;
+  &:nth-child(1) {
+    margin-left: 0;
+  }
+  &:hover {
+    opacity: 1;
+    filter: grayscale(0);
+    background: none;
+    color: none;
+    border-top: none;
+    border-bottom: none;
+  }
 }

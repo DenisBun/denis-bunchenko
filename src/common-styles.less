@@ -1,5 +1,5 @@
-@import "./dark-theme.less";
-@import "./light-theme.less";
+@import './dark-theme.less';
+@import './light-theme.less';
 
 @primary-color: #1c77c3;
 
@@ -8,7 +8,9 @@
 @mobile-max-width: 400px;
 @sidebar-visibility-min-width: 1200px;
 
-@heading-font-family: -apple-system,BlinkMacSystemFont,"Helvetica Neue","Roboto",Roboto,Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+@heading-font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+  'Roboto', Roboto, Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+  'Segoe UI', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
 .desktopOnly {
   display: block !important;
@@ -29,7 +31,7 @@
     max-width: 550px;
   }
 }
-  
+
 @media screen and (max-width: @desktop-max-width) {
   .desktopOnly {
     display: none !important;
@@ -39,7 +41,6 @@
     padding: 1.5rem;
   }
 }
-
 
 .mainThemeDependentCss() {
   * {
@@ -58,12 +59,12 @@
       }
     }
     .sidebarToggleBtn {
-      fill: @header-sidebar-toggle-color
+      fill: @header-sidebar-toggle-color;
     }
   }
 
   // Index page
   .heroButtons {
-    color: @index-link-buttons-text-color
+    color: @index-link-buttons-text-color;
   }
 }
