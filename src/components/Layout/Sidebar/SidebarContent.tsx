@@ -14,7 +14,7 @@ import {
   getSimplifiedPosts,
 } from '../../../utils/helpers';
 
-import * as styles from './SidebarContent.module.less';
+import './SidebarContent.less';
 
 export const SidebarContent: React.FC = () => {
   const data = useStaticQuery(graphql`
@@ -57,8 +57,8 @@ export const SidebarContent: React.FC = () => {
 
   return (
     <>
-      <div className={styles.sidebarContent}>
-        <h2 className={styles.sidebarTitle}>Categories 📔</h2>
+      <div className="sidebarContent">
+        <h2 className="sidebarTitle">Categories 📔</h2>
         <Accordion allowZeroExpanded allowMultipleExpanded>
           {categories.map((category) => (
             <AccordionItem key={category}>
@@ -68,7 +68,7 @@ export const SidebarContent: React.FC = () => {
               <nav>
                 {postsByCategories[category].map((post) => (
                   <AccordionItemPanel key={post.slug}>
-                    <Link to={post.slug} className={styles.sidebarLink}>
+                    <Link to={post.slug} className="sidebarLink">
                       <span>📜</span> <span>{post.title}</span>
                     </Link>
                   </AccordionItemPanel>

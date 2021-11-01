@@ -50,6 +50,9 @@
   * {
     color: @theme-font-color;
   }
+  // h1, h2, h3, h4, h5 {
+  //   color: @primary-color;
+  // }
 
   // =====================================================================================
   // Header
@@ -77,6 +80,24 @@
       &:hover {
         background: @footer-link-hover-color;
       }
+    }
+  }
+
+// =====================================================================================
+  // Sidebar
+  // =====================================================================================
+  .sidebarContent {
+    background-color: @sidebar-bg-color
+  }
+  .accordion__button {
+    background-color: @accordion-button-bg-color;
+    &:hover {
+      background-color: @accordion-button-hover-bg-color;
+    }
+  }
+  .sidebarLink {
+    &:hover {
+      background-color: @sidebar-article-link-hover-bg-color;
     }
   }
 
