@@ -1,0 +1,82 @@
+.highlighted {
+  background: #1c77c3;
+  color: #111;
+}
+
+.post {
+  display: grid;
+  grid-template-columns: auto 60px;
+  grid-gap: 1rem;
+  align-items: center;
+  border: 1px solid transparent;
+  padding: 0.55rem 0;
+
+  &:hover {    
+    border: 1px solid #d0d0d0;
+  }
+
+  h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #343434;
+    filter: brightness(1);
+  }
+
+  &:hover time {
+    color: #707070;
+  }
+
+  time {
+    display: block;
+    text-align: center;
+    font-family: Menlo, 'DM Mono', 'Roboto Mono', Courier New, monospace;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #707070;
+  }
+}
+
+.postNew {
+  display: grid;
+  grid-template-columns: auto 60px;
+  grid-gap: 1rem;
+  align-items: center;
+  border: 1px solid transparent;
+  padding: 0.55rem 1rem;
+
+  background: rgba(0, 0, 0, 0.05);
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-left: 6px solid #ffbf00;
+  border-image: linear-gradient(to right top, yellow, #ffbf00, yellow);
+  border-image-slice: 10% 45%;
+  background: transparent;
+
+  &:hover {
+    border-top: 1px solid #d0d0d0;
+  }
+
+  h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #343434;
+    filter: brightness(1);
+  }
+
+  &:hover time {
+    color: #707070;
+  }
+
+  time {
+    display: block;
+    text-align: center;
+    font-family: Menlo, 'DM Mono', 'Roboto Mono', Courier New, monospace;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #707070;
+  }
+}
+
+

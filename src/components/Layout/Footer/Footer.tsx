@@ -1,7 +1,7 @@
 import { Link } from 'gatsby';
 import React from 'react';
 
-import * as styles from './Footer.module.less';
+import './Footer.less';
 import netlify from '../../../images/netlify.png';
 import gatsby from '../../../images/gatsby.png';
 import github from '../../../images/nav-github.png';
@@ -27,10 +27,10 @@ const madeWithLinks = [
 
 export const Footer = () => {
   return (
-    <footer className={styles.footer}>
+    <footer className="footer">
       <section>
         <nav>
-          <span className={styles.desktopOnly}>Made by Denis Bunchenko</span>
+          <span className="desktopOnly">Made by Denis Bunchenko</span>
           {links.map((link) => (
             <a
               href={link.url}

@@ -1,3 +1,6 @@
+@import './dark-theme.less';
+@import './light-theme.less';
+
 @primary-color: #1c77c3;
 
 @desktop-max-width: 1000px;
@@ -5,34 +8,186 @@
 @mobile-max-width: 400px;
 @sidebar-visibility-min-width: 1200px;
 
-@heading-font-family: -apple-system,BlinkMacSystemFont,"Helvetica Neue","Roboto",Roboto,Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+@heading-font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+  'Roboto', Roboto, Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+  'Segoe UI', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
 .desktopOnly {
-    display: block !important;
+  display: block !important;
 }
 
 .container {
-    margin-left: auto;
-    margin-right: auto;
-    padding: 2rem;
-    max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem;
+  max-width: 800px;
 
-    &.large {
-        max-width: 1350px;
-      }
+  &.large {
+    max-width: 1350px;
+  }
 
-    &.small,
-    .small {
+  &.small,
+  .small {
     max-width: 550px;
+  }
+}
+
+@media screen and (max-width: @desktop-max-width) {
+  .desktopOnly {
+    display: none !important;
+  }
+
+  .container {
+    padding: 1.5rem;
+  }
+}
+
+// =====================================================================================
+// Main Styles For Dark/Light Themes
+// =====================================================================================
+
+.mainThemeDependentCss() {
+  * {
+    color: @theme-font-color;
+  }
+
+  // =====================================================================================
+  // Header
+  // =====================================================================================
+  .headerWrapper {
+    background-color: @header-bg-color;
+    .headerLink {
+      background-color: @header-button-bg-color;
+      &:hover {
+        background-color: @header-button-bg-color-hover;
+      }
+    }
+    .sidebarToggleBtn {
+      fill: @header-sidebar-toggle-color;
     }
   }
-  
-  @media screen and (max-width: @desktop-max-width) {
-    .desktopOnly {
-      display: none !important;
-    }
-  
-    .container {
-      padding: 1.5rem;
+
+  // =====================================================================================
+  // Footer
+  // =====================================================================================
+
+  .footer {
+    background-color: @footer-background-color;
+    a {
+      &:hover {
+        background: @footer-link-hover-color;
+      }
     }
   }
+
+  // =====================================================================================
+  // Sidebar
+  // =====================================================================================
+  .sidebarContent {
+    background-color: @sidebar-bg-color;
+  }
+  .accordion__button {
+    background-color: @accordion-button-bg-color;
+    &:hover {
+      background-color: @accordion-button-hover-bg-color;
+    }
+  }
+  .sidebarLink {
+    &:hover {
+      background-color: @sidebar-article-link-hover-bg-color;
+    }
+  }
+
+  // =====================================================================================
+  // Index Page
+  // =====================================================================================
+  .heroButtons {
+    a {
+      color: @theme-font-color-reverse;
+    }
+    .button {
+      border-color: @buttons-border-color;
+      span {
+        color: @theme-font-color-reverse;
+      }
+    }
+  }
+  .hero {
+    h2 {
+      span {
+        color: @primary-color;
+      }
+      color: @primary-color;
+    }
+    .post,
+    .postNew {
+      &:hover {
+        background: @post-hover-background;
+      }
+    }
+  }
+
+  // =====================================================================================
+  // Blog Search Page
+  // =====================================================================================
+  .searchInput {
+    background: @search-input-bg-color;
+  }
+  .post,
+  .postNew {
+    &:hover {
+      background: @post-hover-background;
+    }
+  }
+
+  // =====================================================================================
+  // Social Links
+  // =====================================================================================
+  .socialLink {
+    opacity: @social-link-opacity;
+  }
+
+  // =====================================================================================
+  // Tags
+  // =====================================================================================
+  .tags,
+  .tag {
+    a {
+      background: @tag-bg-color;
+    }
+  }
+
+  // =====================================================================================
+  // Separate Post
+  // =====================================================================================
+  .postTitle {
+    color: @primary-color;
+  }
+  .blogPost {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      color: @primary-color;
+    }
+  }
+
+  // =====================================================================================
+  // Scrollbar
+  // =====================================================================================
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background: @scrollbar;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: @scrollbar-track;
+    border-radius: 0;
+  }
+
+
+  .newBadge {
+    color: #ffbf00;
+  }
+}

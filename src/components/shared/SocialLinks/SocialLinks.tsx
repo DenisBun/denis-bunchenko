@@ -9,7 +9,7 @@ import medium from '../../../images/medium-social.png';
 import reddit from '../../../images/reddit-social.png';
 import upwork from '../../../images/upwork-social.png';
 
-import * as styles from './SocialLinks.module.less';
+import './SocialLinks.less';
 
 export const SocialLinks = () => {
   const {
@@ -37,7 +37,7 @@ export const SocialLinks = () => {
   return (
     <>
       <h3 style={{ fontSize: '2rem' }}>Social</h3>
-      <div className={styles.socialLinksWrapper}>
+      <div className="socialLinksWrapper">
         <p>
           Feel free to reach me out. I am always happy to cooperate and
           communicate on any topics! 👋
@@ -45,7 +45,7 @@ export const SocialLinks = () => {
         <div>
           <a
             href={`https://twitter.com/${social.twitter}`}
-            className={styles.socialLink}
+            className="socialLink"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -53,7 +53,7 @@ export const SocialLinks = () => {
           </a>
           <a
             href={`https://www.linkedin.com/in/${social.linkedIn}`}
-            className={styles.socialLink}
+            className="socialLink"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -61,7 +61,7 @@ export const SocialLinks = () => {
           </a>
           <a
             href={`https://www.upwork.com/freelancers/${social.upWork}`}
-            className={styles.socialLink}
+            className="socialLink"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -69,7 +69,7 @@ export const SocialLinks = () => {
           </a>
           <a
             href={`https://medium.com/${social.medium}`}
-            className={styles.socialLink}
+            className="socialLink"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -77,7 +77,7 @@ export const SocialLinks = () => {
           </a>
           <a
             href={`https://www.instagram.com/${social.instagram}`}
-            className={styles.socialLink}
+            className="socialLink"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -85,7 +85,7 @@ export const SocialLinks = () => {
           </a>
           <a
             href={`https://www.reddit.com/user/${social.reddit}`}
-            className={styles.socialLink}
+            className="socialLink"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -93,7 +93,7 @@ export const SocialLinks = () => {
           </a>
           <a
             href={`https://github.com/${social.gitHub}`}
-            className={styles.socialLink}
+            className="socialLink"
             target="_blank"
             rel="noopener noreferrer"
           >

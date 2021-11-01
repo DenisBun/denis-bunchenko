@@ -1,47 +1,10 @@
 :root {
-  /* Colors */
-  /* ;
-  --link-color: white;
   --border-color: #111;
-  --heading-font-color: var(--primary);
-  --background-color: #272727;
-  --sidebar-color: #222;
-  --navbar-color: #333;
-  --sidebar-color-hover: #303030;
-  --sidebar-color-focus: #444;
-  --category-background-color: #161616;
-  --category-background-color-hover: #2a2a2a;
+  --scrollbar: #888;
+  --scrollbar-track: #bbb;
   --light-border-color: #444;
-  --toolbar-background-color: #1b1b1b;
-  --toolbar-color: #eee;
-  --tooltip-border-color: #555;
-  --tooltip-background-color: #232323;
-  --font-color: #b3b9c5;
-  --medium-font-color: #aaa;
-  --dark-font-color: #888;
-  --bright-font-color: #eee;
-  --input-background: #393939;
-  --blockquote-background-color: rgba(0, 0, 0, 0.4);
-  --blockquote-color: var(--light-font-color);
-  --black: #111;
-  --inline-code-background-color: rgba(0, 0, 0, 0.2);
-  --inline-code-color: #eee;
-  --h2-filter: brightness(1);
-  --h3-filter: brightness(1.3);
-  --h4-filter: brightness(1.5);
-  --dark-opacity: rgba(0, 0, 0, 0.2);
-  --dark-opacity-hover: rgba(0, 0, 0, 0.3);
-  ;
- */
-
- --border-color: #111;
- /* --scrollbar: var(--border-color);
- --scrollbar-track: var(--light-border-color); */
- --scrollbar: #888;
- --scrollbar-track: #bbb;
- --light-border-color: #444;
- --reverse: #111;
- --primary: #1c77c3;
+  --reverse: #111;
+  --primary: #1c77c3;
 
   /* Font */
   --font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
@@ -59,33 +22,6 @@
   box-sizing: border-box;
 }
 
-/* Scrollbar */
-
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-  background: var(--scrollbar);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--scrollbar-track);
-  border-radius: 0;
-}
-
-::selection {
-  background: var(--primary);
-  color: var(--reverse);
-}
-
-::-moz-selection {
-  background: var(--primary);
-  color: var(--reverse);
-}
-
-::marker {
-  color: var(--primary);
-}
-
 a:focus-visible,
 button:focus-visible {
   outline: 3px solid var(--primary);
@@ -97,7 +33,6 @@ body {
   font-size: 1rem;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  /* background: var(--background-color); */
 }
 
 p,
@@ -127,7 +62,9 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: -apple-system,BlinkMacSystemFont,"Helvetica Neue","Roboto",Roboto,Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Roboto',
+    Roboto, Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   margin: 0 0 1.5rem 0;
   line-height: 1.2;
   color: var(--primary);
@@ -159,5 +96,9 @@ article a:hover {
 }
 
 .accordion__button {
-  padding: .75rem 1rem !important;
+  padding: 0.75rem 1rem !important;
+}
+
+.gatsby-highlight {
+  margin: 1rem 0 3rem 0;
 }

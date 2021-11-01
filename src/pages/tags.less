@@ -1,0 +1,45 @@
+@import '../common-styles.less';
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.subTitle {
+  color: #999;
+  font-size: 1.4rem;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 3rem;
+  padding: 0;
+}
+
+.tag {
+  list-style: none;
+  margin: 0.5rem;
+  a {
+    // background: #f0f0f0;
+    border: 1px solid #999;
+    color: #222;
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: normal;
+    padding: 0.3rem 0.5rem;
+    width: 150px;
+    &:hover {
+      background: transparent;
+      border: 1px solid #1c77c3;
+      color: #1c77c3;
+      font-weight: 400;
+    }
+  }
+}

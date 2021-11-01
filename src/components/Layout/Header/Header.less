@@ -1,0 +1,83 @@
+@import '../../../common-styles.less';
+
+.headerWrapper {
+  height: 80px;
+  @media screen and (max-width: @desktop-max-width) {
+    height: 60px;
+  }
+  position: relative;
+}
+
+.myImg {
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+  @media screen and (max-width: @desktop-max-width) {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  height: 80px;
+  @media screen and (max-width: @desktop-max-width) {
+    height: 60px;
+  }
+}
+
+.themeIconToggle {
+  height: 35px;
+  width: 35px;
+  margin-left: 10px;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.homeLink {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+  span {
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    font-size: 1.4rem;
+  }
+  @media screen and (max-width: @tablet-max-width) {
+    span {
+      display: none;
+    }
+  }
+}
+
+.headerLink {
+  text-decoration: none;
+  color: black;
+  font-size: 1.2rem;
+  margin: 10px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  @media screen and (max-width: @mobile-max-width) {
+    font-size: 0.8rem;
+    padding: 0.5rem 0.6rem;
+  }
+}
+
+.sidebarToggleBtn {
+  position: absolute;
+  top: 30px;
+  left: 1.5rem;
+  display: none;
+  @media screen and (max-width: @desktop-max-width) {
+    top: 20px;
+  }
+  @media screen and (min-width: @sidebar-visibility-min-width) {
+    display: block;
+  }
+}

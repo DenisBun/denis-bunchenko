@@ -4,7 +4,7 @@ import { Link, graphql } from "gatsby"
 import { Seo } from '../components/Seo';
 import { appendComments, slugify } from '../utils/helpers';
 
-import * as styles from './blog-post.module.less';
+import './blog-post.less';
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark.frontmatter;
@@ -20,13 +20,17 @@ const BlogPostTemplate = ({ data, location }) => {
   return (
     <>
       <Seo title={post.title} description={post.description || post.excerpt} />
-      <article itemScope itemType="http://schema.org/Article">
+      <article
+        itemScope
+        itemType="http://schema.org/Article"
+        className="blogPost"
+      >
         <header>
-          <div className={styles.container}>
-            <h1 className={styles.postTitle}>{post.title}</h1>
+          <div className="container">
+            <h1 className="postTitle">{post.title}</h1>
             <div className="post-meta">
               {post.tags && (
-                <div className={styles.tags}>
+                <div className="tags">
                   {post.tags.map((tag) => (
                     <Link
                       key={tag}
@@ -45,20 +49,20 @@ const BlogPostTemplate = ({ data, location }) => {
                 </div>
               )}
 
-              <div className={styles.postDetails}>
+              <div className="postDetails">
                 Written by <Link to="/me">Denis Bunchenko</Link> on{' '}
                 <time>{post.date}</time>
               </div>
             </div>
             {post.description && (
-              <p className={styles.postDescription}>{post.description}</p>
+              <p className="postDescription">{post.description}</p>
             )}
           </div>
         </header>
 
         <section
           id={slug}
-          className={styles.container}
+          className="container"
           dangerouslySetInnerHTML={{ __html: html }}
           itemProp="articleBody"
         />
