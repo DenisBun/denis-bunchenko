@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-import * as styles from './Post.module.less';
+import './Post.less';
 
 export const Post = ({ node, query }) => {
   const date = new Date(node.date);
@@ -32,7 +32,7 @@ export const Post = ({ node, query }) => {
         return (
           <h3>
             {title.slice(0, highlightStart)}
-            <strong className={styles.highlighted}>
+            <strong className="highlighted">
               {title.slice(highlightStart, highlightEnd)}
             </strong>
             {title.slice(highlightEnd)}
@@ -45,13 +45,9 @@ export const Post = ({ node, query }) => {
   };
 
   return (
-    <Link
-      to={node.slug}
-      key={node.id}
-      className={isNew ? styles.postNew : styles.post}
-    >
+    <Link to={node.slug} key={node.id} className={isNew ? 'postNew' : 'post'}>
       <span>
-        <span className={styles.newBadge}>{isNew && 'New!'}</span>
+        <span className="newBadge">{isNew && 'New!'}</span>
         {getTitle(node.title, query)}
       </span>
       <div>{formattedDate && <time>{formattedDate}</time>}</div>

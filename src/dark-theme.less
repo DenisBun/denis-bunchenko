@@ -1,15 +1,20 @@
-#layout {
-  &.dark.theme {
-    @header-bg-color: rgba(34, 36, 38, 0.87);
-    @header-button-bg-color: rgb(54, 58, 61);
-    @header-button-bg-color-hover: rgba(0, 0, 0, 0.6);
-    @header-sidebar-toggle-color: #e8e6e3;
+.dark.theme {
+  // =====================================================================================
+  // Header
+  // =====================================================================================
+  @header-bg-color: rgba(34, 36, 38, 0.87);
+  @header-button-bg-color: rgb(54, 58, 61);
+  @header-button-bg-color-hover: rgba(0, 0, 0, 0.6);
+  @header-sidebar-toggle-color: #e8e6e3;
 
-    @theme-font-color: #e8e6e3;
-    @theme-font-color-reverse: #000;
+  // =====================================================================================
+  // Index Page
+  // =====================================================================================
+  @theme-font-color: #e8e6e3;
+  @theme-font-color-reverse: #e8e6e3;
+  @index-link-buttons-text-color: #111;
+  @post-hover-background: rgba(0, 0, 0, 1);
+  @buttons-border-color: rgb(140, 130, 115) !important;
 
-    @index-link-buttons-text-color: #111;
-
-    .mainThemeDependentCss();
-  }
+  .mainThemeDependentCss();
 }

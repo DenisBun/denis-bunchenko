@@ -1,15 +1,20 @@
-#layout {
-  &.light.theme {
-    @header-bg-color: #eeed;
-    @header-button-bg-color: #cacaca;
-    @header-button-bg-color-hover: rgba(0, 0, 0, 0.3);
-    @header-sidebar-toggle-color: #000;
+.light.theme {
+  // =====================================================================================
+  // Header
+  // =====================================================================================
+  @header-bg-color: #eeed;
+  @header-button-bg-color: #cacaca;
+  @header-button-bg-color-hover: rgba(0, 0, 0, 0.3);
+  @header-sidebar-toggle-color: #000;
 
-    @theme-font-color: #000;
-    @theme-font-reverse: #e8e6e3;
+  // =====================================================================================
+  // Index Page
+  // =====================================================================================
+  @theme-font-color: #000;
+  @theme-font-color-reverse: #e8e6e3;
+  @index-link-buttons-text-color: #fff;
+  @post-hover-background: rgba(0, 0, 0, 0.05);
+  @buttons-border-color: transparent !important;
 
-    @index-link-buttons-text-color: #fff;
-
-    .mainThemeDependentCss();
-  }
+  .mainThemeDependentCss();
 }

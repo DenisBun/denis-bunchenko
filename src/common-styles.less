@@ -42,6 +42,10 @@
   }
 }
 
+// =====================================================================================
+// Main Styles For Different Themes
+// =====================================================================================
+
 .mainThemeDependentCss() {
   * {
     color: @theme-font-color;
@@ -63,8 +67,29 @@
     }
   }
 
-  // Index page
+  // =====================================================================================
+  // Index Page
+  // =====================================================================================
   .heroButtons {
-    color: @index-link-buttons-text-color;
+    a {
+      color: @theme-font-color-reverse;
+    }
+    .button {
+      border-color: @buttons-border-color;
+      span {
+        color: @theme-font-color-reverse;
+      }
+    }
   }
+  .hero {
+    .post, .postNew {
+      &:hover {
+        background: @post-hover-background;
+      }
+    }
+  }
+  .newBadge {
+    color: #ffbf00;
+  }
+  
 }

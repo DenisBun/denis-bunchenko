@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 
 import { Post } from './Post/Post';
 
-import * as styles from './Posts.module.less';
+import './Posts.less';
 
 export const Posts = ({ data = [], showYears, query }) => {
   const postsByYear = useMemo(() => {
@@ -22,7 +22,7 @@ export const Posts = ({ data = [], showYears, query }) => {
   if (showYears) {
     return years.map((year) => (
       <section key={year}>
-        <h2 className={styles.postHeading}>{year}</h2>
+        <h2 className="postHeading">{year}</h2>
         <div>
           {postsByYear[year].map((node) => (
             <Post key={node.id} node={node} query={query} />
