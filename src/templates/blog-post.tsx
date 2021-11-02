@@ -1,8 +1,13 @@
-import * as React from "react"
-import { Link, graphql } from "gatsby"
+import React, { useEffect, createRef, useRef, useState } from 'react';
+import { Link, graphql } from 'gatsby';
 
 import { Seo } from '../components/Seo';
-import { appendComments, slugify } from '../utils/helpers';
+import {
+  appendComments,
+  slugify,
+  themeSubject,
+  updateCommentsTheme,
+} from '../utils/helpers';
 
 import './blog-post.less';
 
@@ -11,11 +16,31 @@ const BlogPostTemplate = ({ data, location }) => {
   const { slug } = data.markdownRemark.fields;
   const { html } = data.markdownRemark;
 
-  const commentBox = React.createRef<HTMLDivElement>();
+  const [currentTheme, setCurrentTheme] = useState('');
+  const commentBox = createRef<HTMLDivElement>();
 
-  React.useEffect(() => {
+  const themeSubjectRef = useRef(themeSubject);
+
+  let subscription;
+
+  useEffect(() => {
+    subscription = themeSubjectRef.current.subscribe((theme) => {
+      setCurrentTheme(theme);
+    });
+    return () => {
+      subscription.unsubscribe();
+    };
+  }, []);
+
+  useEffect(() => {
     appendComments(commentBox);
-  }, [commentBox]);
+  }, []);
+
+  useEffect(() => {
+    if (currentTheme) {
+      updateCommentsTheme(currentTheme);
+    }
+  }, [currentTheme]);
 
   return (
     <>

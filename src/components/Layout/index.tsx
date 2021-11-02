@@ -1,11 +1,15 @@
 import * as React from 'react';
-import { useCallback, useState, useEffect } from 'react';
+import { useCallback, useState, useEffect, useRef } from 'react';
 import { useLocation } from '@reach/router';
 
 import { Header } from './Header/Header';
 import { Footer } from './Footer/Footer';
 import { Sidebar } from './Sidebar/Sidebar';
-import { getMainClass, toggleBackgroundColor } from '../../utils/helpers';
+import {
+  getMainClass,
+  themeSubject,
+  toggleBackgroundColor,
+} from '../../utils/helpers';
 
 type DataProps = {
   location: Location;
@@ -15,6 +19,8 @@ const Layout: React.FC<DataProps> = ({ children }) => {
   // @ts-ignore-line
   const rootPath = `${__PATH_PREFIX__}/`;
   const location = useLocation();
+
+  const themeSubjectRef = useRef(themeSubject);
 
   const isRootPath = location.pathname === rootPath;
 
@@ -35,6 +41,7 @@ const Layout: React.FC<DataProps> = ({ children }) => {
   useEffect(() => {
     toggleBackgroundColor(theme);
     localStorage.setItem('theme', theme);
+    themeSubjectRef.current.next(theme);
   }, [theme]);
 
   const toggleTheme = useCallback(() => {

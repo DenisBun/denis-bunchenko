@@ -1,3 +1,5 @@
+import { Subject } from 'rxjs';
+
 export function getSimplifiedPosts(posts, options = {}) {
   return posts.map((post) => ({
     id: post.node.id,
@@ -68,9 +70,16 @@ export function appendComments(commentBox) {
 
   if (commentBox && commentBox.current) {
     commentBox.current.appendChild(commentScript);
-  } else {
-    console.log(`Error adding utterances comments on: ${commentBox}`);
   }
+}
+
+export function updateCommentsTheme(currentTheme) {
+  const message = {
+    type: 'set-theme',
+    theme: currentTheme === 'dark' ? 'github-dark' : 'github-light',
+  };
+  const utterances = document.querySelector('iframe');
+  utterances?.contentWindow?.postMessage(message, 'https://utteranc.es');
 }
 
 export const hasWindow = typeof window !== 'undefined';
@@ -80,3 +89,5 @@ export const toggleBackgroundColor = (theme) => {
 };
 
 export const getMainClass = (theme) => `theme ${theme}`;
+
+export const themeSubject = new Subject<'light' | 'dark'>();
