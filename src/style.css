@@ -99,6 +99,16 @@ article a:hover {
   padding: 0.75rem 1rem !important;
 }
 
-.gatsby-highlight {
+/* .gatsby-highlight {
   margin: 1rem 0 3rem 0;
+} */
+
+.gatsby-resp-image-wrapper {
+  margin-left: 0 !important;
+}
+
+a.gatsby-resp-image-link {
+  border-top: none !important;
+  border-bottom: none !important;
+  background: transparent !important;
 }

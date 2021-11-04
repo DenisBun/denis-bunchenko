@@ -34,7 +34,7 @@ const TagsPage: React.FC<PageProps<TagsType>> = ({
       <section className="container" style={{ paddingTop: 0 }}>
         <ul className="tagList">
           {group.map((tag, index, tagsArr) => (
-            <li key={tag.fieldValue} className="tag">
+            <li key={tag.fieldValue} className="tagItem">
               <Link to={`/tags/${slugify(tag.fieldValue)}/`}>
                 {tag.fieldValue} ({tag.totalCount})
               </Link>
