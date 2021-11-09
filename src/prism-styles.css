@@ -255,6 +255,14 @@ pre.language-terminal::before {
   color: var(--function) !important;
 }
 
+.token.interpolation {
+  color: var(--punctuation) !important;
+}
+
+.token.plain-text {
+  color: var(--code-font-color) !important;
+}
+
 .language-css,
 .token.boolean,
 .token.class-name {
@@ -280,6 +288,10 @@ pre.language-terminal::before {
   cursor: help;
 }
 
+.language-javascript {
+  color: var(--tag) !important;
+}
+
 .language-jsx .token.class-name {
   color: var(--tag) !important;
 }
@@ -289,7 +301,7 @@ pre::-moz-selection,
 code::-moz-selection,
 code::-moz-selection {
   text-shadow: none;
-  color: inherit !important;
+  color: inherit;
   background: rgba(150, 150, 150, 0.3) !important;
 }
 
@@ -298,7 +310,7 @@ pre::selection,
 code::selection,
 code::selection {
   text-shadow: none;
-  color: inherit !important;
+  color: inherit;
   background: rgba(150, 150, 150, 0.3) !important;
 }
 
@@ -307,7 +319,7 @@ pre[class*='language-']::-moz-selection,
 code[class*='language-'] ::-moz-selection,
 code[class*='language-'] ::-moz-selection {
   text-shadow: none;
-  color: inherit !important;
+  color: inherit;
   background: rgba(150, 150, 150, 0.3) !important;
 }
 
@@ -316,7 +328,7 @@ pre[class*='language-']::selection,
 code[class*='language-'] ::selection,
 code[class*='language-'] ::selection {
   text-shadow: none;
-  color: inherit !important;
+  color: inherit;
   background: rgba(150, 150, 150, 0.3) !important;
 }
 

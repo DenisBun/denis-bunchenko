@@ -5,7 +5,6 @@ import { Seo } from '../components/Seo';
 import { Posts } from '../components/Posts/Posts';
 import { getSimplifiedPosts } from '../utils/helpers';
 
-import githubImg from '../images/nav-github.png';
 import kofiCup from '../images/kofi-cup.png';
 
 import './index.less';
@@ -24,7 +23,7 @@ const BlogIndex: React.FC<PageProps> = ({ data }) => {
       <Seo title="Denis Bunchenko" showDefaultTitle={false} />
       <article className="hero">
         <header>
-          <div className="container">
+          <div className="container" style={{ paddingBottom: 0 }}>
             <h1>Hey there! I'm Denis.</h1>
             <p className="subtitle small">
               I'm a <strong>software engineer</strong> from{' '}
@@ -32,17 +31,6 @@ const BlogIndex: React.FC<PageProps> = ({ data }) => {
               <del>sometimes</del> sharing <Link to="/blog">my knowledge</Link>.
               This website is a sort of a visual guide for me and my audience
               showing what I've learned and created.
-            </p>
-            <p className="heroButtons" style={{ marginBottom: 0 }}>
-              <a
-                href="https://github.com/AwesomeDevDen"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="button iconButton"
-              >
-                <img src={githubImg} alt="GitHub" />
-                <span>Don't Hesitate to Follow</span>
-              </a>
             </p>
           </div>
         </header>
@@ -81,7 +69,6 @@ const BlogIndex: React.FC<PageProps> = ({ data }) => {
               target="_blank"
               rel="noopener noreferrer"
               className="button iconButton"
-              style={{ backgroundColor: '#ff5f5f' }}
             >
               <img src={kofiCup} alt="ko-fi" className="vibrateImg" />
               <span>Buy Me a Coffee</span>
