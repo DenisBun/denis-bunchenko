@@ -48,7 +48,7 @@
 }
 
 .downloadLink {
-  margin-bottom:1rem;
+  margin-bottom: 1rem;
 }
 
 .pdfImg {
@@ -71,25 +71,39 @@
   transition: opacity ease-in-out 0.2s;
   box-shadow: 0px 30px 40px 0px rgba(0, 0, 0, 0.198);
   border-radius: 4px;
+
+  button {
+    width: 44px;
+    height: 44px;
+    background: white;
+    border: 0;
+    font: inherit;
+    font-size: 0.8em;
+    border-radius: 4px;
+    &:first-child {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+  span {
+    font: inherit;
+    font-size: 0.8em;
+    padding: 0 0.5em;
+  }
 }
 
+.page-controls button:enabled:hover {
+  cursor: pointer;
+}
+.page-controls button:enabled:hover,
+.page-controls button:enabled:focus {
+  background-color: #e6e6e6;
+}
 .page-controls button:first-child {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
-
-.page-controls button {
-  width: 44px;
-  height: 44px;
-  background: white;
-  border: 0;
-  font: inherit;
-  font-size: 0.8em;
-  border-radius: 4px;
-}
-
-.page-controls span {
-  font: inherit;
-  font-size: 0.8em;
-  padding: 0 0.5em;
+.page-controls button:last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }

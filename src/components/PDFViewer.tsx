@@ -69,13 +69,6 @@ export const PDFViewer = ({ children }) => {
           ›
         </button>
       </div>
-      {/* <div class="page-controls">
-        <button type="button" disabled="">
-          ‹
-        </button>
-        <span>1 of 4</span>
-        <button type="button">›</button>
-      </div> */}
     </Document>
   );
 };
