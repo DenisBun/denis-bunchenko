@@ -1,0 +1,95 @@
+/* Hiding PDF text content from user but not from screen reader */
+.react-pdf__Page__textContent {
+  position: absolute !important; /* Outside the DOM flow */
+  height: 1px;
+  width: 1px; /* Nearly collapsed */
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE 7+ only support clip without commas */
+  clip: rect(1px, 1px, 1px, 1px); /* All other browsers */
+}
+
+// .react-pdf__Page__svg {
+//     width: auto !important;
+//     height: auto !important;
+//     border-radius: 8px;
+// }
+
+.react-pdf__Document {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  background-color: #fff !important;
+  max-width: 500px;
+  width: 90vw;
+}
+
+.react-pdf__Page {
+  //   max-width: calc(~"100% - 2em");
+  max-width: 500px;
+  width: 90vw;
+
+  margin: 1em;
+}
+
+.react-pdf__Page canvas {
+  max-width: 100%;
+  width: 100% !important;
+  height: auto !important;
+}
+
+.resume-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.downloadLink {
+  margin-bottom:1rem;
+}
+
+.pdfImg {
+  margin-left: 0.5rem;
+  height: 35px;
+  width: 35px;
+}
+
+.react-pdf__Document:hover .page-controls {
+  opacity: 1;
+}
+
+.page-controls {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  background: white;
+  opacity: 0;
+  transform: translateX(-50%);
+  transition: opacity ease-in-out 0.2s;
+  box-shadow: 0px 30px 40px 0px rgba(0, 0, 0, 0.198);
+  border-radius: 4px;
+}
+
+.page-controls button:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.page-controls button {
+  width: 44px;
+  height: 44px;
+  background: white;
+  border: 0;
+  font: inherit;
+  font-size: 0.8em;
+  border-radius: 4px;
+}
+
+.page-controls span {
+  font: inherit;
+  font-size: 0.8em;
+  padding: 0 0.5em;
+}

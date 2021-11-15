@@ -181,21 +181,45 @@ exports.createSchemaCustomization = ({ actions }) => {
   `);
 };
 
-// Absolute imports
 
-// exports.onCreateWebpackConfig = ({
-//   stage,
-//   rules,
-//   loaders,
-//   plugins,
-//   actions,
-// }) => {
-//   actions.setWebpackConfig({
-//     resolve: {
-//       modules: [path.resolve(__dirname, 'src'), 'node_modules'],
-//     },
-//   });
-// };
+// =====================================================================================
+// Webpack Extended Config
+// =====================================================================================
+exports.onCreateWebpackConfig = ({ stage, actions, plugins, loaders }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        stream: require.resolve('stream-browserify'),
+        zlib: require.resolve('browserify-zlib'),
+        path: require.resolve('path-browserify'),
+      },
+      fallback: { fs: false, crypto: false },
+    },
+    plugins: [
+      plugins.provide({
+        process: 'process/browser',
+        Buffer: ['buffer', 'Buffer'],
+      }),
+    ],
+  })
+  // https://github.com/diegomura/react-pdf/issues/1029#issuecomment-849420658
+  if (stage === "build-html" || stage === "develop-html") {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /canvas/,
+            use: loaders.null(),
+          },
+          {
+            test: /pdfjs-dist/,
+            use: loaders.null(),
+          },
+        ],
+      },
+    })
+  }
+};
 
 // Helpers
 function slugify(str) {

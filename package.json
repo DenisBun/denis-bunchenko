@@ -1,15 +1,38 @@
 {
   "name": "denisbunchenko.com",
+  "version": "1.0.0",
   "private": true,
-  "description": "Blog powered by Gatsby and Markdown",
-  "version": "0.1.0",
-  "author": "Denis Bunchenko <den.on.by@gmail.com>",
+  "description": "Denis Bunchenko Blog",
+  "keywords": [
+    "gatsby"
+  ],
+  "homepage": "https://github.com/AwesomeDevDen/denis-bunchenko#readme",
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AwesomeDevDen/denis-bunchenko.git"
+  },
+  "license": "MIT",
+  "author": "Denis Bunchenko <den.on.by@gmail.com>",
+  "main": "n/a",
+  "scripts": {
+    "build": "gatsby build",
+    "clean": "gatsby clean",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "serve": "gatsby serve",
+    "start": "gatsby develop",
+    "write-good": "write-good content/blog/**/*.md"
+  },
   "dependencies": {
     "@fontsource/dm-sans": "^4.5.0",
+    "@react-pdf/renderer": "^2.0.21",
     "@types/react-sidebar": "^3.0.2",
+    "assert": "^2.0.0",
+    "browserify-zlib": "^0.2.0",
+    "buffer": "^5.7.1",
     "gatsby": "^4.0.0",
     "gatsby-plugin-feed": "^4.0.0",
     "gatsby-plugin-google-analytics": "^4.0.0",
@@ -32,37 +55,23 @@
     "gatsby-transformer-remark": "^5.0.0",
     "gatsby-transformer-sharp": "^4.0.0",
     "netlify-build-plugin-pagewatch": "^1.0.2",
+    "path-browserify": "^1.0.1",
     "prismjs": "^1.25.0",
+    "process": "^0.11.10",
     "react": "^17.0.2",
     "react-accessible-accordion": "^4.0.0",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
+    "react-pdf": "^5.5.0",
     "react-sidebar": "^3.0.2",
+    "react-use": "^17.3.1",
     "react-use-flexsearch": "^0.1.1",
-    "rxjs": "^6.6.7"
+    "rxjs": "^6.6.7",
+    "stream-browserify": "^3.0.0",
+    "util": "^0.12.4"
   },
   "devDependencies": {
     "prettier": "2.4.1",
     "write-good": "^1.0.8"
-  },
-  "homepage": "https://github.com/AwesomeDevDen/denis-bunchenko#readme",
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
-  "main": "n/a",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AwesomeDevDen/denis-bunchenko.git"
-  },
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "gatsby develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "write-good": "write-good content/blog/**/*.md",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   }
 }
