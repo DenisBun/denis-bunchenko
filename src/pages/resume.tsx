@@ -1,16 +1,18 @@
 import { PDFDownloadLink } from '@react-pdf/renderer';
-import { PageProps } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import React, { useEffect, useState } from 'react';
 
 import { PDFViewer } from '../components/PDFViewer';
-import { ResumePDF } from '../components/ResumePDF';
+import MyResume from '../components/Resume';
 import { Seo } from '../components/Seo';
 
 import pdfFile from '../images/pdf-file.png';
 
 import './resume.less';
 
-const Resume: React.FC<PageProps> = () => {
+const Resume: React.FC<PageProps> = ({ data }) => {
+  const resumeImageSrc = data.allFile.nodes[0].publicURL;
+
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -28,7 +30,7 @@ const Resume: React.FC<PageProps> = () => {
             {isClient && (
               <>
                 <PDFDownloadLink
-                  document={<ResumePDF />}
+                  document={<MyResume imageSrc={resumeImageSrc} />}
                   fileName="Denis Bunchenko CV.pdf"
                   className="button iconButton downloadLink"
                 >
@@ -44,7 +46,7 @@ const Resume: React.FC<PageProps> = () => {
                   }
                 </PDFDownloadLink>
                 <PDFViewer>
-                  <ResumePDF />
+                  <MyResume imageSrc={resumeImageSrc} />
                 </PDFViewer>
               </>
             )}
@@ -56,3 +58,13 @@ const Resume: React.FC<PageProps> = () => {
 };
 
 export default Resume;
+
+export const pageQuery = graphql`
+  query {
+    allFile(filter: { name: { eq: "me" }, extension: { eq: "jpeg" } }) {
+      nodes {
+        publicURL
+      }
+    }
+  }
+`;

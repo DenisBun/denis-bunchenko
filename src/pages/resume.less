@@ -8,11 +8,11 @@
   clip: rect(1px, 1px, 1px, 1px); /* All other browsers */
 }
 
-// .react-pdf__Page__svg {
-//     width: auto !important;
-//     height: auto !important;
-//     border-radius: 8px;
-// }
+.react-pdf__Page__svg {
+    width: auto !important;
+    height: auto !important;
+    border-radius: 8px;
+}
 
 .react-pdf__Document {
   position: relative;
@@ -27,17 +27,16 @@
 }
 
 .react-pdf__Page {
-  //   max-width: calc(~"100% - 2em");
   max-width: 500px;
   width: 90vw;
-
-  margin: 1em;
+  border-radius: 8px;
 }
 
-.react-pdf__Page canvas {
+.react-pdf__Page svg {
   max-width: 100%;
   width: 100% !important;
   height: auto !important;
+  border-radius: 8px;
 }
 
 .resume-wrapper {

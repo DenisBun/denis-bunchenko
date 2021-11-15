@@ -52,7 +52,7 @@ export const PDFViewer = ({ children }) => {
       loading={rendrerLoader}
     >
       {/* <Outline className="custom-classname-outline" onItemClick={onItemClick} /> */}
-      <Page renderMode="canvas" pageNumber={pageNumber} />
+      <Page renderMode="svg" pageNumber={pageNumber} />
 
       <div className="page-controls">
         <button disabled={pageNumber <= 1} onClick={previousPage} type="button">
