@@ -53,22 +53,27 @@ export const PDFViewer = ({ children }) => {
     >
       {/* <Outline className="custom-classname-outline" onItemClick={onItemClick} /> */}
       <Page renderMode="svg" pageNumber={pageNumber} />
-
-      <div className="page-controls">
-        <button disabled={pageNumber <= 1} onClick={previousPage} type="button">
-          ‹
-        </button>
-        <span>
-          {`${pageNumber || (numPages ? 1 : '--')} of ${numPages || '--'}`}
-        </span>
-        <button
-          disabled={pageNumber >= numPages}
-          onClick={nextPage}
-          type="button"
-        >
-          ›
-        </button>
-      </div>
+      {numPages > 1 && (
+        <div className="page-controls">
+          <button
+            disabled={pageNumber <= 1}
+            onClick={previousPage}
+            type="button"
+          >
+            ‹
+          </button>
+          <span>
+            {`${pageNumber || (numPages ? 1 : '--')} of ${numPages || '--'}`}
+          </span>
+          <button
+            disabled={pageNumber >= numPages}
+            onClick={nextPage}
+            type="button"
+          >
+            ›
+          </button>
+        </div>
+      )}
     </Document>
   );
 };

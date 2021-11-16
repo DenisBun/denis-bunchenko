@@ -1,18 +1,11 @@
 import React from 'react';
-import {
-  Text,
-  Font,
-  Page,
-  View,
-  Image,
-  Document,
-  StyleSheet,
-} from '@react-pdf/renderer';
+import { Font, Page, View, Document, StyleSheet } from '@react-pdf/renderer';
 
-import { Header } from './Header';
-import { Education } from './Education';
 import { Experience } from './Experience';
-import { Skills } from './Skills';
+import { LeftColumn } from './LeftColumn';
+import { IntroText } from './IntroText';
+
+Font.registerHyphenationCallback((word) => [word]);
 
 Font.register({
   family: 'Open Sans',
@@ -36,25 +29,19 @@ Font.register({
 
 const Resume = (props) => {
   return (
-    <Page {...props} style={styles.page}>
+    <Page size={props.size}>
       <View style={styles.container}>
-        <View style={styles.leftColumn}>
-          <View style={styles.headerInfo}>
-            <Image src={props.imageSrc} style={styles.image} />
-            <Text style={styles.author}>Denis Bunchenko</Text>
-            <Text style={styles.role}>Software Engineer</Text>
-          </View>
-
-          <Education />
-          <Skills />
+        <LeftColumn />
+        <View style={styles.mainSectionContainer}>
+          <IntroText />
+          <Experience />
         </View>
-        <Experience />
       </View>
     </Page>
   );
 };
 
-export default (props) => {
+export default ({ size }) => {
   return (
     <Document
       keywords="denis bunchenko, resume, software engineer"
@@ -62,58 +49,24 @@ export default (props) => {
       author="Denis Bunchenko"
       title="Resume"
     >
-      <Resume size="A4" imageSrc={props.imageSrc} />
-      {/* <Resume orientation="landscape" size="A4" />
-    <Resume size={[380, 1250]} /> */}
+      <Resume size={size} />
     </Document>
   );
 };
 
 const styles = StyleSheet.create({
-  page: {
-    // padding: 30,
-  },
   container: {
     flex: 1,
     flexDirection: 'row',
-    '@media max-width: 400': {
-      flexDirection: 'column',
-    },
   },
-  image: {
-    marginBottom: 10,
-    width: 100,
-    height: 100,
-    borderRadius: 100,
-  },
-  leftColumn: {
-    padding: 30,
-    backgroundColor: '#fbfbfbdd',
-    flexDirection: 'column',
-    width: 200,
+  mainSectionContainer: {
+    flex: 1,
+    paddingTop: 30,
     paddingRight: 30,
+    paddingLeft: 30,
     '@media max-width: 400': {
-      width: '100%',
-      paddingRight: 0,
+      paddingTop: 10,
+      paddingLeft: 0,
     },
-    '@media orientation: landscape': {
-      width: 200,
-    },
-  },
-  headerInfo: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 40,
-  },
-  author: {
-    fontSize: 20,
-    fontFamily: 'Lato Bold',
-    textAlign: 'center',
-  },
-  role: {
-    fontSize: 16,
-    textAlign: 'center',
   },
 });

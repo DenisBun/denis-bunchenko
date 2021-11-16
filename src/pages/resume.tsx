@@ -10,9 +10,7 @@ import pdfFile from '../images/pdf-file.png';
 
 import './resume.less';
 
-const Resume: React.FC<PageProps> = ({ data }) => {
-  const resumeImageSrc = data.allFile.nodes[0].publicURL;
-
+const Resume: React.FC<PageProps> = () => {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -30,7 +28,7 @@ const Resume: React.FC<PageProps> = ({ data }) => {
             {isClient && (
               <>
                 <PDFDownloadLink
-                  document={<MyResume imageSrc={resumeImageSrc} />}
+                  document={<MyResume size={[595.28]} />}
                   fileName="Denis Bunchenko CV.pdf"
                   className="button iconButton downloadLink"
                 >
@@ -46,7 +44,7 @@ const Resume: React.FC<PageProps> = ({ data }) => {
                   }
                 </PDFDownloadLink>
                 <PDFViewer>
-                  <MyResume imageSrc={resumeImageSrc} />
+                  <MyResume size="A4" />
                 </PDFViewer>
               </>
             )}
@@ -58,13 +56,3 @@ const Resume: React.FC<PageProps> = ({ data }) => {
 };
 
 export default Resume;
-
-export const pageQuery = graphql`
-  query {
-    allFile(filter: { name: { eq: "me" }, extension: { eq: "jpeg" } }) {
-      nodes {
-        publicURL
-      }
-    }
-  }
-`;
