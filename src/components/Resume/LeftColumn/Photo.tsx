@@ -1,19 +1,12 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import { Image, StyleSheet } from '@react-pdf/renderer';
-import React from 'react';
+import React, { useContext } from 'react';
+
+import { ResumePhotoContext } from '../../../pages/resume';
 
 export const Photo = () => {
-  //   const data = useStaticQuery(graphql`
-  //     query {
-  //       allFile(filter: { name: { eq: "me" }, extension: { eq: "jpeg" } }) {
-  //         nodes {
-  //           publicURL
-  //         }
-  //       }
-  //     }
-  //   `);
-  //   console.log(data);
-  return <Image src={'https://via.placeholder.com/150'} style={styles.image} />;
+  const resumePhoto = useContext(ResumePhotoContext);
+  return <Image src={resumePhoto} style={styles.image} />;
 };
 
 const styles = StyleSheet.create({

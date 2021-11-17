@@ -4,7 +4,9 @@ import { Font, Page, View, Document, StyleSheet } from '@react-pdf/renderer';
 import { Experience } from './Experience';
 import { LeftColumn } from './LeftColumn';
 import { IntroText } from './IntroText';
+import { AdditionalInfo } from './AdditionalInfo';
 
+// preventing hyphenation
 Font.registerHyphenationCallback((word) => [word]);
 
 Font.register({
@@ -35,6 +37,7 @@ const Resume = (props) => {
         <View style={styles.mainSectionContainer}>
           <IntroText />
           <Experience />
+          <AdditionalInfo />
         </View>
       </View>
     </Page>

@@ -5,7 +5,10 @@ import { useAsync } from 'react-use';
 
 import './PDFViewer.less';
 
-pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+if (pdfjs?.GlobalWorkerOptions?.workerSrc) {
+  pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+}
+
 
 export const PDFViewer = ({ children }) => {
   const [numPages, setNumPages] = useState(null);
